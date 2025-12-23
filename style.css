@@ -736,6 +736,66 @@ a {
   height: 500px;
   border: none;
 }
+/* =========================
+   BASE (مشترك للجميع)
+========================= */
+.case-study {
+  padding: 60px 24px 120px;
+}
+
+.case-study section {
+  max-width: 760px;
+  margin-bottom: 72px;
+}
+
+/* Titles */
+.case-study h1 {
+  font-size: 52px;
+  margin-bottom: 12px;
+}
+
+.case-study h2 {
+  font-size: 26px;
+  margin-bottom: 16px;
+}
+
+/* Text */
+.case-study p {
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 640px;
+  color: #1e1e1e;
+}
+
+.subtitle,
+.muted {
+  color: #666;
+}
+
+/* Lists */
+.case-study ul {
+  padding-left: 18px;
+}
+
+.case-study li {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+/* Links – no underline */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Back link */
+.back {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 40px;
+  display: inline-block;
+}
+
 
 
 
