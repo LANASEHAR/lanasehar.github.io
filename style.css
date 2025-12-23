@@ -18,3 +18,210 @@ body {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+/* =====================
+   PURPLE PALETTE
+===================== */
+:root {
+  --purple-dark: #160c2a;
+  --purple-main: #7b5cff;
+  --purple-soft: #c9bfff;
+  --purple-bg: #f3f0ff;
+}
+
+/* =====================
+   HERO
+===================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  padding: 120px 24px;
+  background: radial-gradient(
+    circle at top left,
+    var(--purple-bg),
+    white
+  );
+  overflow: hidden;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--purple-soft);
+  color: var(--purple-dark);
+  margin-bottom: 20px;
+}
+
+.hero-title {
+  font-size: clamp(42px, 6vw, 64px);
+  line-height: 1.1;
+  max-width: 900px;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--purple-main), #b39cff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  margin-top: 24px;
+  font-size: 18px;
+  max-width: 620px;
+  opacity: 0.8;
+}
+
+/* =====================
+   BUTTONS (REACTIVE)
+===================== */
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  position: relative;
+  padding: 16px 32px;
+  border-radius: 999px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.35s ease;
+}
+
+.btn-primary {
+  background: var(--purple-main);
+  color: white;
+  box-shadow: 0 12px 30px rgba(123, 92, 255, 0.35);
+}
+
+.btn-primary i {
+  transition: transform 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(123, 92, 255, 0.55);
+}
+
+.btn-primary:hover i {
+  transform: translateX(6px);
+}
+
+.btn-outline {
+  border: 2px solid var(--purple-soft);
+  color: var(--purple-dark);
+}
+
+.btn-outline:hover {
+  background: var(--purple-bg);
+  transform: translateY(-2px);
+}
+
+/* =====================
+   FLOATING SHAPES
+===================== */
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--purple-soft);
+  opacity: 0.35;
+  animation: float 12s infinite ease-in-out;
+}
+
+.shape-1 {
+  width: 220px;
+  height: 220px;
+  top: 10%;
+  right: 10%;
+}
+
+.shape-2 {
+  width: 160px;
+  height: 160px;
+  bottom: 20%;
+  left: 5%;
+  animation-delay: 2s;
+}
+
+.shape-3 {
+  width: 120px;
+  height: 120px;
+  top: 50%;
+  right: 30%;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-30px); }
+  100% { transform: translateY(0); }
+}
+
+/* =====================
+   MANIFESTO
+===================== */
+.manifesto {
+  padding: 120px 24px;
+}
+
+.manifesto-grid {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.manifesto-item {
+  background: white;
+  padding: 32px;
+  border-radius: 24px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.manifesto-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(123,92,255,0.2);
+}
+
+/* =====================
+   PROJECTS
+===================== */
+.projects {
+  padding: 120px 24px;
+  background: var(--purple-bg);
+}
+
+.projects-grid {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.project-card {
+  position: relative;
+  padding: 48px;
+  border-radius: 32px;
+  background: white;
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-12px) scale(1.02);
+}
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, var(--purple-main), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 0.15;
+}
+
