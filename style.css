@@ -8,13 +8,24 @@
 /* ========== ANIMATED BACKGROUND ========== */
 body {
   font-family: Inter, Arial, sans-serif;
+  min-height: 100vh;
   background: linear-gradient(
     120deg,
     #f3f0ff,
+    #e8e1ff,
     #ffffff,
-    #efe9ff,
-    #ffffff
+    #efe9ff
   );
+  background-size: 300% 300%;
+  animation: gradientMove 15s ease infinite;
+  color: #222;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
   background-size: 400% 400%;
   animation: gradientMove 18s ease infinite;
   color: #222;
@@ -42,7 +53,6 @@ body {
   flex-direction: column;
   justify-content: center;
   gap: 24px;
-  animation: fadeUp 1s ease forwards;
 }
 
 .badge {
@@ -235,6 +245,5 @@ body {
   .project-item h3 { font-size: 26px; }
 }
 
-body {
-  background: red !important;
-}
+
+
