@@ -1,360 +1,128 @@
-body {
-  font-family: Inter, Arial, sans-serif;
-  margin: 0;
-  background: #fafafa;
-  color: #222;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* HOME */
-.hero {
-  padding: 80px 24px;
-}
-
-.projects {
-  display: grid;
-  gap: 24px;
-  padding: 24px;
-}
-
-.project-card {
-  padding: 32px;
-  border-radius: 20px;
-  background: white;
-  transition: transform 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-6px);
-}
-
-/* COLORS */
-.softmind { background: #FAF7F8; }
-.structa { background: #F4F6FA; }
-.paper   { background: #F8F5F1; }
-
-/* CASE STUDY */
-.case-study {
-  padding: 40px 24px;
-}
-
-.case-study section {
-  margin-bottom: 48px;
-  max-width: 700px;
-}
-
-.case-study img {
-  width: 100%;
-  border-radius: 16px;
-  margin-top: 16px;
-}
-
-.back {
-  display: inline-block;
-  margin-bottom: 24px;
-  font-size: 14px;
-  opacity: 0.7;
-}
-
 /* ===== PURPLE PALETTE ===== */
 :root {
-  --purple-900: #1a102f;
-  --purple-700: #4b2ca0;
-  --purple-500: #7b5cff;
-  --purple-300: #c4b8ff;
-  --purple-100: #f3f1ff;
+  --purple-dark: #1b102e;
+  --purple-main: #7b5cff;
+  --purple-soft: #c9bfff;
+  --purple-bg: #f3f0ff;
 }
 
-/* ===== HERO SECTION ===== */
+/* HERO */
 .hero {
   min-height: 100vh;
   padding: 120px 24px;
-  background: linear-gradient(
-    180deg,
-    var(--purple-100),
-    #ffffff
-  );
+  background: linear-gradient(180deg, var(--purple-bg), #ffffff);
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 24px;
 }
 
-/* Badge */
 .badge {
   width: fit-content;
   padding: 6px 14px;
   border-radius: 999px;
-  background: var(--purple-300);
-  color: var(--purple-700);
+  background: var(--purple-soft);
+  color: var(--purple-dark);
   font-size: 13px;
-  font-weight: 500;
 }
 
-/* Title */
 .hero h1 {
   font-size: clamp(36px, 6vw, 56px);
-  line-height: 1.15;
+  color: var(--purple-dark);
   max-width: 800px;
-  color: var(--purple-900);
 }
 
-/* Highlight words */
 .highlight {
-  color: var(--purple-500);
+  color: var(--purple-main);
 }
 
-/* Subtitle */
 .hero p {
   font-size: 18px;
   max-width: 620px;
-  line-height: 1.6;
-  color: #444;
 }
 
-/* Actions */
 .hero-actions {
   display: flex;
   gap: 16px;
-  margin-top: 16px;
   flex-wrap: wrap;
 }
 
-/* Buttons */
 .btn {
   padding: 14px 28px;
   border-radius: 999px;
-  font-size: 15px;
   font-weight: 500;
+  text-decoration: none;
   transition: all 0.3s ease;
 }
 
-/* Primary button */
 .btn.primary {
-  background: var(--purple-500);
+  background: var(--purple-main);
   color: white;
-  box-shadow: 0 10px 30px rgba(123, 92, 255, 0.25);
+  box-shadow: 0 10px 30px rgba(123,92,255,0.25);
 }
 
 .btn.primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 16px 40px rgba(123, 92, 255, 0.35);
 }
 
-/* Ghost button */
 .btn.ghost {
-  border: 1.5px solid var(--purple-300);
-  color: var(--purple-700);
-  background: transparent;
+  border: 1.5px solid var(--purple-soft);
+  color: var(--purple-dark);
 }
 
-.btn.ghost:hover {
-  background: var(--purple-100);
+/* MANIFESTO */
+.manifesto {
+  padding: 100px 24px;
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-  .hero {
-    padding: 80px 20px;
-  }
-}
-/* ===== CASE STUDY (SoftMind) ===== */
-.case-study {
-  padding: 40px 28px;
-  max-width: 760px;
-  margin: auto;
-  background: #fff;
-  color: #2b2b2b;
-  font-family: Inter, Arial, sans-serif;
+.manifesto h2 {
+  font-size: 42px;
+  max-width: 700px;
+  margin-bottom: 24px;
 }
 
-/* Back link */
-.back {
+.manifesto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+}
+
+.manifesto-item {
+  background: white;
+  padding: 32px;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(123,92,255,0.15);
+}
+
+/* PROJECTS */
+.projects {
+  padding: 100px 24px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+}
+
+.project-card {
+  background: white;
+  padding: 40px;
+  border-radius: 28px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(123,92,255,0.25);
+}
+
+.project-tag {
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--purple-soft);
   display: inline-block;
-  margin-bottom: 20px;
-  font-size: 14px;
-  opacity: 0.75;
-  text-decoration: none;
-}
-
-/* Main Intro */
-.intro h1 {
-  font-size: 44px;
-  color: #4a2b6b;
-  margin-bottom: 8px;
-}
-
-.subtitle {
-  font-size: 18px;
-  color: #6e5a78;
   margin-bottom: 16px;
-  line-height: 1.6;
-}
-
-/* Figma Prototype button */
-.view-proto {
-  display: inline-block;
-  padding: 12px 28px;
-  background: #a47cbf;
-  color: white;
-  border-radius: 999px;
-  font-size: 15px;
-  margin-top: 12px;
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.view-proto:hover {
-  background: #8f68a8;
-  transform: translateY(-2px);
-}
-
-/* Section styles */
-.case-section {
-  margin-top: 36px;
-}
-
-.case-section h2 {
-  font-size: 28px;
-  color: #5c397e;
-  margin-bottom: 12px;
-}
-
-.case-section p,
-.case-section ul {
-  font-size: 17px;
-  line-height: 1.55;
-  color: #444;
-}
-
-.case-section ul {
-  list-style: disc;
-  margin-left: 20px;
-}
-
-/* UI Screens */
-.screens img {
-  width: 100%;
-  margin-top: 20px;
-  border-radius: 14px;
-  box-shadow: 0 8px 20px rgba(120, 90, 150, 0.15);
-}
-/* ===== CASE STUDY (Paper & Soul) ===== */
-.case-study.paper {
-  padding: 40px 28px;
-  max-width: 760px;
-  margin: auto;
-  background: #fff;
-  color: #222;
-  font-family: Inter, Arial, sans-serif;
-}
-
-/* Back link */
-.paper .back {
-  display: inline-block;
-  margin-bottom: 20px;
-  font-size: 14px;
-  opacity: 0.75;
-  text-decoration: none;
-}
-
-/* Intro */
-.paper .intro h1 {
-  font-size: 44px;
-  color: #6a4d3b;
-  margin-bottom: 8px;
-}
-
-.paper .subtitle {
-  font-size: 18px;
-  color: #7d6f63;
-  margin-bottom: 14px;
-  line-height: 1.6;
-}
-
-/* Figma prototype button */
-.paper .view-proto {
-  display: inline-block;
-  padding: 12px 28px;
-  background: #bfa67a;
-  color: white;
-  border-radius: 999px;
-  font-size: 15px;
-  margin-top: 12px;
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-/* ===== PAPER & SOUL CASE STUDY ===== */
-
-.case-study.paper {
-  background: #F8F5F1;
-}
-
-.case-study {
-  padding: 40px 24px 80px;
-}
-
-.case-study section {
-  max-width: 720px;
-  margin-bottom: 56px;
-}
-
-.case-study h1 {
-  font-size: 48px;
-  margin-bottom: 12px;
-}
-
-.subtitle {
-  font-size: 18px;
-  color: #555;
-}
-
-.case-study h2 {
-  font-size: 28px;
-  margin-bottom: 12px;
-}
-
-.case-study p,
-.case-study li {
-  font-size: 18px;
-  line-height: 1.6;
-}
-
-.case-study ul {
-  padding-left: 20px;
-}
-
-.case-study img {
-  width: 100%;
-  border-radius: 16px;
-  margin-top: 16px;
-}
-
-/* Figma embed */
-.figma-embed {
-  width: 100%;
-  height: 600px;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid #ddd;
-}
-
-.figma-embed iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-/* Back link */
-.back {
-  display: inline-block;
-  margin-bottom: 32px;
-  font-size: 14px;
-  opacity: 0.7;
-}
-.structa {
-  background: #F4F6FA;
 }
 
