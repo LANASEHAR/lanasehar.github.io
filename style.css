@@ -795,6 +795,61 @@ a {
   margin-bottom: 40px;
   display: inline-block;
 }
+/* =========================
+   SOFTMIND – ROSE
+========================= */
+.case-study.softmind {
+  background: #fff3f6;
+}
+
+.case-study.softmind h1 {
+  color: #5a1e2e;
+}
+
+.case-study.softmind h2 {
+  color: #d96c8a;
+}
+
+.case-study.softmind .back {
+  color: #5a1e2e;
+}
+/* =========================
+   PAPER & SOUL – ORANGE
+========================= */
+.case-study.paper {
+  background: #fff7ef;
+}
+
+.case-study.paper h1 {
+  color: #4a2600;
+}
+
+.case-study.paper h2 {
+  color: #f08a24;
+}
+
+.case-study.paper .back {
+  color: #4a2600;
+}
+/* =========================
+   STRUCTA – JAUNE
+========================= */
+.case-study.structa {
+  background: #fffbea;
+}
+
+.case-study.structa h1 {
+  color: #3a2e00;
+}
+
+.case-study.structa h2 {
+  color: #f5c400;
+}
+
+.case-study.structa .back {
+  color: #3a2e00;
+}
+
 
 
 
