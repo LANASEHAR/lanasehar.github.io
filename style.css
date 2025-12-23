@@ -332,5 +332,29 @@ body {
   color: var(--purple-dark);
   width: fit-content;
 }
+/* =====================
+   REMOVE UNDERLINES
+===================== */
+
+/* Remove underline from all links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Keep buttons clean */
+.btn,
+.btn:visited,
+.btn:hover {
+  text-decoration: none;
+}
+
+/* Project cards links */
+.project-card,
+.project-card:hover,
+.project-card:visited {
+  text-decoration: none;
+}
+
 
 
