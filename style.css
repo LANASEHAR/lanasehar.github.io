@@ -607,6 +607,136 @@ a {
   height: 500px;
   border: none;
 }
+/* =========================
+   ORANGE PALETTE (PAPER & SOUL)
+========================= */
+:root {
+  --orange-dark: #4a2600;
+  --orange-main: #f08a24;
+  --orange-soft: #ffe1c2;
+  --orange-bg: #fff7ef;
+
+  --text-main: #1e1e1e;
+  --text-muted: #666;
+}
+
+/* =========================
+   REMOVE UNDERLINES
+========================= */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================
+   CASE STUDY BASE
+========================= */
+.case-study.paper {
+  background: var(--orange-bg);
+  padding: 60px 24px 120px;
+}
+
+.case-study section {
+  max-width: 760px;
+  margin-bottom: 72px;
+}
+
+/* =========================
+   TITLES & TEXT
+========================= */
+.case-study h1 {
+  font-size: 52px;
+  color: var(--orange-dark);
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: var(--text-muted);
+  max-width: 520px;
+}
+
+.case-study h2 {
+  font-size: 26px;
+  margin-bottom: 16px;
+  color: var(--orange-main);
+}
+
+.case-study p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text-main);
+  max-width: 640px;
+}
+
+.case-study ul {
+  padding-left: 18px;
+}
+
+.case-study li {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: var(--text-main);
+}
+
+/* =========================
+   BACK LINK
+========================= */
+.back {
+  font-size: 14px;
+  color: var(--orange-dark);
+  opacity: 0.7;
+  margin-bottom: 40px;
+  display: inline-block;
+}
+
+/* =========================
+   MUTED TEXT
+========================= */
+.muted {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* =========================
+   SMALL SCREENS GRID
+========================= */
+.screens-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.screens-grid img {
+  width: 100%;
+  max-width: 200px;
+  border-radius: 18px;
+  box-shadow: 0 16px 32px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.screens-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 24px 48px rgba(240, 138, 36, 0.35);
+}
+
+/* =========================
+   FIGMA EMBED
+========================= */
+.figma-embed {
+  margin-top: 24px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.figma-embed iframe {
+  width: 100%;
+  height: 500px;
+  border: none;
+}
+
 
 
 
