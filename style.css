@@ -667,11 +667,23 @@ a {
    ORANGE PALETTE (PAPER & SOUL)
 ========================= */
 :root {
-  --orange-dark: #4a2600;
-  --orange-main: #f08a24;
-  --orange-soft: #ffe1c2;
-  --orange-bg: #fff7ef;
+  /* Global brand (HOME) */
+  --purple-main: #7b5cff;
+  --purple-soft: #c9bfff;
+  --purple-bg: #f3f0ff;
+  --purple-dark: #160c2a;
 
+  /* Case studies */
+  --softmind-bg: #fff3f6;
+  --softmind-accent: #d96c8a;
+
+  --paper-bg: #fff7ef;
+  --paper-accent: #f08a24;
+
+  --structa-bg: #fffbea;
+  --structa-accent: #f5c400;
+
+  /* Text */
   --text-main: #1e1e1e;
   --text-muted: #666;
 }
@@ -1054,6 +1066,7 @@ a {
 html {
   scroll-behavior: smooth;
 }
+
 
 
 
