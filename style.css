@@ -1146,6 +1146,126 @@ html {
   transform: translateY(0);
 }
 
+/* ----------- COLORS ----------- */
+:root {
+  --color-bg: #FFF8F9;
+  --color-primary: #E63946;
+  --color-dark: #2E2E3A;
+  --color-light: #F7F7F9;
+  --color-accent: #FFB3BC;
+  --transition-fast: 0.3s ease;
+}
+
+/* ========== HERO CV ========== */
+.hero-cv {
+  background: var(--color-bg);
+  padding: 80px 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-cv__inner {
+  display: flex;
+  gap: 60px;
+  max-width: 1200px;
+  width: 100%;
+  align-items: center;
+}
+
+/* LEFT */
+.hero-cv__left {
+  flex: 1;
+  text-align: center;
+}
+
+.photo-frame {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  border: 6px solid var(--color-primary);
+  overflow: hidden;
+  margin: 0 auto 20px;
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-cv__name {
+  font-size: 36px;
+  color: var(--color-dark);
+  margin: 12px 0;
+  font-weight: 700;
+}
+
+.hero-cv__title {
+  font-size: 20px;
+  color: var(--color-primary);
+  margin-bottom: 18px;
+}
+
+/* RIGHT */
+.hero-cv__right {
+  flex: 2;
+}
+
+.hero-cv__bio {
+  font-size: 18px;
+  color: var(--color-dark);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.hero-cv__actions {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.btn.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+  padding: 14px 26px;
+  border-radius: 6px;
+  transition: var(--transition-fast);
+}
+
+.btn.btn-primary:hover {
+  background: var(--color-accent);
+}
+
+.btn.btn-outline {
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  padding: 12px 24px;
+  border-radius: 6px;
+  transition: var(--transition-fast);
+}
+
+.btn.btn-outline:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.hero-cv__skills {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.hero-cv__skills li {
+  background: var(--color-accent);
+  padding: 8px 14px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: var(--color-dark);
+  font-weight: 600;
+}
+
 
 
 
