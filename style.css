@@ -646,6 +646,44 @@ body {
   padding-left: 12px;
   margin-bottom: 12px;
 }
+/* =========================
+   FORCE RED TEXT COLOR
+========================= */
+
+:root {
+  --color-primary: #7E2929;
+}
+
+/* Textes principaux rouges */
+.hero-cv__title,
+.hero-tagline,
+.section-title,
+.manifesto h2,
+.project-info h3:hover,
+.project-tag,
+.project-tech li,
+.availability,
+.work-context h3 {
+  color: #7E2929 !important;
+}
+
+/* Accents rouges (bordures, séparateurs, hover) */
+.nav-item.active,
+.btn-primary,
+.btn-outline:hover {
+  background-color: #7E2929 !important;
+}
+
+.btn-outline {
+  border-color: #7E2929 !important;
+  color: #7E2929 !important;
+}
+
+/* Hover subtil */
+a:hover {
+  color: #7E2929;
+}
+
 
 
 
