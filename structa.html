@@ -22,7 +22,20 @@
 <body class="grid-container"> <!-- Structure responsive -->
 
 <main class="case-study structa" role="main">
+<!-- Toggle Thème -->
+<button id="theme-toggle" class="btn btn-outline" aria-label="Toggle dark/light mode">🌙 Toggle Theme</button>
 
+<!-- Modale Feedback IA -->
+<dialog id="feedback-modal" class="modal">
+  <h3>AI-Powered Feedback</h3>
+  <p>Your task priority has been optimized! Reduced cognitive load by 30%.</p>
+  <button id="close-modal" class="btn btn-primary">Close</button>
+</dialog>
+
+<!-- Slider Priorité (dans section Objective) -->
+<label for="priority-slider">Adjust Cognitive Priority:</label>
+<input id="priority-slider" type="range" min="1" max="10" value="5" aria-label="Priority slider">
+<span id="priority-value">5</span>/10
   <!-- BACK -->
   <a href="index.html" class="back" aria-label="Retour au portfolio">← Back to Portfolio</a>
 
@@ -161,17 +174,83 @@
     </p>
   </section>
 
-  <!-- SCREENS -->
-  <section class="section">
-    <h2>UI Screens</h2>
-    <p class="muted">
-      High-fidelity screens showcasing the clean, focused interface.
-    </p>
-    <div class="screens-grid">
-      <img src="https://raw.githubusercontent.com/LANASEHAR/Myportfolio/refs/heads/main/HomepageSTRUCTA.png" alt="Structa home screen: Minimalist dashboard with one highlighted task and clear call-to-action for adding new items." loading="lazy">
-      <!-- Add more images if available, e.g., task creation or completion screens -->
-    </div>
-  </section>
+ :root {
+  /* Design Tokens - Niveau Senior */
+  --primary: #7E2929;
+  --primary-rgb: 126, 41, 41;
+  --accent: #f5c400;
+  --bg-app: #fff8f9;
+  --surface: #ffffff;
+  --text-main: #2e2e3a;
+  --text-muted: #666e75;
+  
+  /* Fluid Typography */
+  --font-h1: clamp(2.5rem, 5vw, 4.5rem);
+  --font-body: clamp(1rem, 1.2vw, 1.25rem);
+  
+  --shadow-sm: 0 4px 20px rgba(var(--primary-rgb), 0.08);
+  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.dark {
+  --bg-app: #1a1a1e;
+  --surface: #25252a;
+  --text-main: #f7f7f9;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+/* Reading Progress Bar */
+.reading-progress {
+  position: fixed;
+  top: 0; left: 0; height: 4px;
+  background: var(--primary);
+  width: 0%; z-index: 1000;
+}
+
+.hero-header {
+  padding: 160px 0 80px;
+  text-align: center;
+}
+
+.kpi-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.kpi-value {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.figma-wrapper {
+  aspect-ratio: 16/9;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Animations d'entrée */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: var(--transition-smooth);
+}
+
+[data-reveal].active {
+  opacity: 1;
+  transform: translateY(0);
+}
 
   <!-- FIGMA EMBED -->
   <section class="section">
@@ -245,6 +324,7 @@
 
 </body>
 </html>
+
 
 
 
