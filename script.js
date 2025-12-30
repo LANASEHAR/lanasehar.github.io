@@ -78,3 +78,20 @@ window.addEventListener('scroll', () => {
   const scrolled = window.pageYOffset;
   document.querySelector('.hero-cv').style.transform = `translateY(${scrolled * 0.5}px)`;
 });
+// Reveal elements on scroll
+const observerOptions = {
+    threshold: 0.15
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('section').forEach(section => {
+    section.classList.add('reveal-effect');
+    observer.observe(section);
+});
