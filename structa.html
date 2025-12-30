@@ -3,347 +3,289 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Structa – Productivity Tool Case Study | Halima Essaouaf</title>
-  <meta name="description" content="Structa: A UX/UI case study on designing a productivity app to reduce cognitive overload through simplified task management. Includes user research, design iterations, and measurable impact.">
-  <meta name="keywords" content="UX/UI design, productivity app, cognitive load reduction, task management, Figma prototype, Halima Essaouaf">
+  <title>Structa – High-Impact UX Case Study | Halima Essaouaf</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  
   <style>
-    /* Variables CSS pour thèmes cohérents et créatifs */
     :root {
       --primary: #7E2929;
-      --primary-rgb: 126, 41, 41;
+      --primary-soft: rgba(126, 41, 41, 0.1);
       --accent: #f5c400;
       --bg-app: #fff8f9;
-      --surface: #ffffff;
-      --text-main: #2e2e3a;
-      --text-muted: #666e75;
-      --font-h1: clamp(2.5rem, 5vw, 4.5rem);
-      --font-body: clamp(1rem, 1.2vw, 1.25rem);
-      --shadow-sm: 0 4px 20px rgba(var(--primary-rgb), 0.08);
-      --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    body.dark {
-      --bg-app: #1a1a1e;
-      --surface: #25252a;
-      --text-main: #f7f7f9;
-    }
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: linear-gradient(135deg, var(--bg-app) 0%, rgba(var(--primary-rgb), 0.05) 100%); /* Gradient subtil pour créativité */
-      color: var(--text-main);
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      transition: var(--transition-smooth);
+      --surface: rgba(255, 255, 255, 0.8);
+      --text-main: #1a1a1e;
+      --text-muted: #5a5a66;
+      --transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     }
 
-    /* Barre de progression de lecture pour engagement */
+    body.dark {
+      --bg-app: #0f0f12;
+      --surface: rgba(30, 30, 35, 0.8);
+      --text-main: #f0f0f5;
+      --text-muted: #a0a0b0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-app);
+      color: var(--text-main);
+      margin: 0;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    /* Barre de progression dégradée */
     .reading-progress {
       position: fixed;
-      top: 0;
-      left: 0;
-      height: 4px;
+      top: 0; left: 0; height: 5px;
       background: linear-gradient(90deg, var(--primary), var(--accent));
-      width: 0%;
-      z-index: 1000;
-      transition: width 0.3s ease;
+      width: 0%; z-index: 1000;
     }
 
-    /* Layout réactif avec Grid */
-    .grid-container {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 40px;
-      max-width: 1200px;
+    .container {
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 20px;
+      padding: 0 20px;
     }
 
-    /* Sections avec animations captivantes */
+    /* Navigation flottante */
+    nav {
+      position: sticky;
+      top: 20px;
+      z-index: 900;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 25px;
+      background: var(--surface);
+      backdrop-filter: blur(10px);
+      border-radius: 50px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      margin-top: 20px;
+    }
+
+    /* Hero Section Captivante */
+    .hero {
+      padding: 120px 0 60px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 10vw, 6rem);
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      margin: 0;
+      background: linear-gradient(135deg, var(--primary), var(--text-muted));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Section "Glassmorphism" */
     .section {
       background: var(--surface);
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: var(--shadow-sm);
-      margin-bottom: 20px;
-      transition: var(--transition-smooth);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 60px;
+      border-radius: 32px;
+      margin-bottom: 40px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.04);
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(40px);
+      transition: var(--transition);
     }
-    .section:hover {
-      transform: scale(1.02);
-      box-shadow: 0 8px 40px rgba(var(--primary-rgb), 0.15);
-    }
-    .section.active {
+
+    .section.is-visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* Intro avec animation fade-in */
-    .intro {
-      text-align: center;
-      animation: fadeIn 1s ease-in;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Galerie photos : petites, captivantes */
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+    /* KPI Grid (Storytelling Senior) */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
-      margin-top: 30px;
+      margin-top: 40px;
     }
-    .gallery-item {
-      max-width: 250px;
+
+    .kpi-card {
+      padding: 30px;
+      background: var(--primary-soft);
+      border-radius: 20px;
       text-align: center;
+      border-left: 5px solid var(--primary);
     }
-    .gallery img {
+
+    .kpi-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      display: block;
+    }
+
+    /* Images & Galerie */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 24px;
+      background: var(--bg-app);
+      transition: var(--transition);
+    }
+
+    .gallery-item img {
       width: 100%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.3s ease;
-      loading: lazy; /* Optimisation performance */
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
     }
-    .gallery img:hover {
-      transform: scale(1.05);
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
     }
-    .gallery p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-top: 10px;
+
+    /* Personas & Citations */
+    blockquote {
+      font-size: 1.8rem;
       font-style: italic;
+      color: var(--primary);
+      border-left: 8px solid var(--accent);
+      padding-left: 30px;
+      margin: 40px 0;
     }
 
-    /* Boutons et éléments interactifs */
-    .btn {
-      background: var(--primary);
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: var(--transition-smooth);
-    }
-    .btn:hover {
-      background: var(--accent);
-      color: var(--primary);
-    }
-    .btn-outline {
-      background: transparent;
+    .btn-toggle {
+      background: none;
       border: 2px solid var(--primary);
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
       color: var(--primary);
-    }
-
-    /* Slider avec feedback visuel */
-    #priority-slider {
-      width: 100%;
-      max-width: 300px;
-      margin: 10px 0;
-    }
-    #priority-value {
-      font-weight: bold;
-      color: var(--accent);
-    }
-
-    /* Modale améliorée */
-    .modal {
-      border: none;
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    }
-    .modal::backdrop {
-      background: rgba(0,0,0,0.5);
-    }
-
-    /* Embed Figma */
-    .figma-embed iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
-      border-radius: 16px;
-    }
-
-    /* Liens et navigation */
-    .back {
-      display: inline-block;
-      margin-bottom: 20px;
-      color: var(--primary);
-      text-decoration: none;
       font-weight: 600;
     }
-    .back:hover {
-      text-decoration: underline;
+
+    .figma-container {
+      position: relative;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.15);
     }
 
-    /* Réactivité : Media queries */
+    
+
     @media (max-width: 768px) {
-      .grid-container {
-        padding: 10px;
-        gap: 20px;
-      }
-      .section {
-        padding: 20px;
-      }
-      .gallery {
-        flex-direction: column;
-        align-items: center;
-      }
-      .gallery-item {
-        max-width: 200px;
-      }
-      .figma-embed iframe {
-        height: 400px;
-      }
-      .kpi-grid {
-        flex-direction: column;
-        gap: 20px;
-      }
-    }
-    @media (max-width: 480px) {
-      .intro h1 {
-        font-size: 2rem;
-      }
-      .section {
-        padding: 15px;
-      }
+      .section { padding: 30px; }
+      .hero h1 { font-size: 3.5rem; }
     }
   </style>
 </head>
+<body>
 
-<body class="grid-container">
-  <!-- Barre de progression -->
-  <div class="reading-progress" id="reading-progress"></div>
+  <div class="reading-progress" id="bar"></div>
 
-  <!-- Toggle Thème -->
-  <button id="theme-toggle" class="btn btn-outline" aria-label="Toggle dark/light mode">🌙 Toggle Theme</button>
+  <div class="container">
+    <nav>
+      <a href="index.html" style="text-decoration:none; color:var(--primary); font-weight:800;">← PORTFOLIO</a>
+      <button class="btn-toggle" id="theme-btn">✨ Switch Theme</button>
+    </nav>
 
-  <!-- BACK -->
-  <a href="index.html" class="back" aria-label="Retour au portfolio">← Back to Portfolio</a>
+    <header class="hero">
+      <h1>Structa</h1>
+      <p style="font-size:1.4rem; color:var(--text-muted); max-width:700px; margin:20px auto;">
+        Réduire la charge mentale par le design. Une étude de cas sur l'essentialisme numérique.
+      </p>
+    </header>
 
-  <!-- INTRO -->
-  <section class="intro section active" aria-labelledby="intro-heading">
-    <h1 id="intro-heading">Structa</h1>
-    <p class="subtitle">
-      Une aventure en productivité : un outil conçu pour apaiser l'esprit, pas pour le submerger – où chaque tâche devient une étape vers la clarté mentale.
-    </p>
-    <p class="intro-text">
-      Dans un monde saturé de listes infinies et de notifications incessantes, Structa réinvente la productivité comme une oasis de sérénité. Inspiré par des utilisateurs comme Sarah, qui se noient dans les options, cette app simplifie l'organisation des tâches pour une efficacité sans chaos, transformant le stress en maîtrise créative.
-    </p>
-  </section>
-
-  <!-- GALERIE VISUELLE (3 photos ajoutées) -->
-  <section class="section active" aria-labelledby="gallery-heading">
-    <h2 id="gallery-heading">Galerie Visuelle : Plongée dans Structa</h2>
-    <p>Explore ces instantanés captivants qui illustrent l'évolution de Structa – de l'idée brute à l'expérience immersive.</p>
-    <div class="gallery">
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=250&h=150&fit=crop&auto=format" alt="Capture d'écran de l'interface principale de Structa">
-        <p>Imagine cette interface comme une toile vierge : simple, accueillante, où une seule tâche brille au centre, invitant à l'action sans distraction.</p>
+    <section class="section">
+      <h2>Résultats & Impact</h2>
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <span class="kpi-number">-30%</span>
+          <span>Temps de création</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-number">8.2/10</span>
+          <span>Score de Clarté</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-number">0</span>
+          <span>Bruit Visuel</span>
+        </div>
       </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=250&h=150&fit=crop&auto=format" alt="Wireframe initial de Structa">
-        <p>Un wireframe qui raconte une histoire de simplicité – chaque ligne effacée pour révéler l'essence, réduisant le bruit visuel à un murmure apaisant.</p>
+    </section>
+
+    <section class="section">
+      <h2>Exploration Visuelle</h2>
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=600" alt="UI Design">
+          <div style="padding:20px;"><strong>Interface Pure</strong><p>Minimisation des distractions.</p></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=600" alt="Wireframes">
+          <div style="padding:20px;"><strong>Structure</strong><p>Hiérarchie de l'information.</p></div>
+        </div>
       </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=250&h=150&fit=crop&auto=format" alt="Session de test utilisateur avec Structa">
-        <p>Une session de test où les sourires s'épanouissent : utilisateurs comme Sarah découvrent enfin un outil qui les libère, pas qui les enchaîne.</p>
+    </section>
+
+    <section class="section">
+      <h2>Le Problème</h2>
+      <p>60% des utilisateurs abandonnent leurs outils de gestion après 3 mois. Pourquoi ? <strong>La fatigue décisionnelle.</strong></p>
+      <blockquote>"Je veux juste accomplir les choses sans que mon cerveau explose." — Sarah, Persona</blockquote>
+      
+    </section>
+
+    <section class="section">
+      <h2>Prototype Interactif</h2>
+      <div class="figma-container">
+        <iframe style="border: none;" width="100%" height="600" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/DXfIOsYxNWxgFqyC8hdkNj/Structa" allowfullscreen></iframe>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONTEXT -->
-  <section class="overview section" aria-labelledby="overview-heading">
-    <h2 id="overview-heading">Aperçu du Projet</h2>
-    <p>
-      Structa est une app conceptuelle de productivité née pour résoudre le paradoxe des outils censés booster l'efficacité mais qui engendrent plus de stress. En privilégiant la simplicité et la révélation progressive, elle aide les utilisateurs à gérer leurs tâches sans épuiser leurs ressources cognitives – une symphonie de calme dans le tumulte quotidien.
-    </p>
-    <p><strong>Durée :</strong> 5 semaines | <strong>Outils :</strong> Figma, Notion, Maze (pour tests d'utilisabilité)</p>
-  </section>
+    <section class="section">
+      <h2>Stratégie UX</h2>
+      <ul style="font-size:1.2rem; line-height:2;">
+        <li>✅ <strong>Focus Principle :</strong> Une action majeure par écran.</li>
+        <li>✅ <strong>Progressive Disclosure :</strong> Ne montrer que le nécessaire.</li>
+        <li>✅ <strong>Emotional UI :</strong> Des retours visuels apaisants.</li>
+      </ul>
+    </section>
 
-  <!-- ROLE -->
-  <section class="section" aria-labelledby="role-heading">
-    <h2 id="role-heading">Mon Rôle</h2>
-    <p>
-      En tant que seule Product Designer, j'ai orchestré la recherche utilisateur, la stratégie UX, les wireframes, les prototypes et les tests itératifs, alignant tout sur les principes de psychologie cognitive et les besoins réels des utilisateurs.
-    </p>
-  </section>
+  </div>
 
-  <!-- PROBLEM -->
-  <section class="section" aria-labelledby="problem-heading">
-    <h2 id="problem-heading">Énoncé du Problème</h2>
-    <p>
-      Les apps de productivité comme Trello ou Asana submergent les utilisateurs de fonctionnalités, hiérarchies et notifications, provoquant une fatigue décisionnelle, du stress et des abandons. Les études montrent que 60% des utilisateurs quittent ces outils en quelques mois, paralysés par un excès de choix.
-    </p>
-  </section>
+  <script>
+    // 1. Barre de progression
+    window.onscroll = () => {
+      let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      let scrolled = (winScroll / height) * 100;
+      document.getElementById("bar").style.width = scrolled + "%";
+    };
 
-  <!-- USER RESEARCH -->
-  <section class="section" aria-labelledby="research-heading">
-    <h2 id="research-heading">Recherche Utilisateur & Insights</h2>
-    <p>
-      J'ai mené des enquêtes auprès de 20 travailleurs/students à distance et analysé des avis concurrents. Insights clés :
-    </p>
-    <ul>
-      <li>Les utilisateurs préfèrent une saisie rapide des tâches à une catégorisation complexe – 80% abandonnent les apps avec plus de 5 étapes de setup.</li>
-      <li>La surcharge cognitive culmine lors de la priorisation ; des flux guidés simples apaisent l'anxiété.</li>
-      <li>Validation de persona : Les douleurs de Sarah résonnent avec les retours communs, soulignant le besoin d'interfaces "une chose à la fois".</li>
-    </ul>
-    <p>Cette recherche a façonné une approche minimaliste, centrée sur la clarté plutôt que sur les fonctionnalités.</p>
-  </section>
+    // 2. Intersection Observer pour apparition fluide
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, { threshold: 0.1 });
 
-  <!-- PERSONA -->
-  <section class="section" aria-labelledby="persona-heading">
-    <h2 id="persona-heading">Persona Utilisateur</h2>
-    <p>
-      <strong>Sarah, 26 ans – Travailleuse/Étudiante à Distance</strong><br>
-      Sarah jongle avec des listes interminables et peine à prioriser, menant à une fatigue mentale. Elle cherche un outil bienveillant, pas exigeant. Citation : "Je veux juste accomplir les choses sans que mon cerveau explose."
-    </p>
-  </section>
+    document.querySelectorAll('.section').forEach(section => {
+      observer.observe(section);
+    });
 
-  <!-- OBJECTIVE -->
-  <section class="section" aria-labelledby="objective-heading">
-    <h2 id="objective-heading">Objectif</h2>
-    <p>
-      Réduire la surcharge cognitive dans l'organisation des tâches en simplifiant les hiérarchies et en minimisant les décisions, favorisant une productivité durable.
-    </p>
-    <ul>
-      <li>↓ Temps de création de tâche de 30% (de 45s à 31s en moyenne)</li>
-      <li>≤ 5 choix visibles par écran</li>
-      <li>↑ Score de clarté de 5/10 à 8/10 (basé sur enquêtes post-test)</li>
-    </ul>
-    <!-- Élément interactif : Slider pour priorité -->
-    <label for="priority-slider">Simuler la Priorité Cognitive :</label>
-    <input id="priority-slider" type="range" min="1" max="10" value="5" aria-label="Ajuster la priorité">
-    <span id="priority-value">5</span>/10
-  </section>
-
-  <!-- UX HYPOTHESIS -->
-  <section class="section" aria-labelledby="hypothesis-heading">
-    <h2 id="hypothesis-heading">Hypothèse UX</h2>
-    <p>
-      Si nous réduisons les choix visibles et guidons les utilisateurs étape par étape via une révélation progressive, ils se sentiront moins submergés et plus en contrôle, augmentant les taux de complétion des tâches.
-    </p>
-  </section>
-
-  <!-- STRATEGY -->
-  <section class="section" aria-labelledby="strategy-heading">
-    <h2 id="strategy-heading">Stratégie UX</h2>
-    <ul>
-      <li><strong>Principe de Focus :</strong> Une action primaire par écran pour éliminer les distractions.</li>
-      <li><strong>Révélation Progressive :</strong> Révéler tâches et options graduellement pour bâtir la confiance.</li>
-      <li><strong>Hiérarchie :</strong> Utiliser espacement, typographie et icônes pour une navigation intuitive.</li>
-      <li><strong>Minimalisme :</strong> Supprimer les éléments non-essentiels comme les notifications excessives.</li>
-    </ul>
-  </section>
-
-  <!-- DESIGN ITERATIONS -->
-  <section class="section" aria-labelledby="iterations-heading">
-    <h2 id="iterations-heading">Itérations de Design</h2>
-    <p
+    // 3. Dark Mode
+    const themeBtn = document.getElementById('theme-btn');
+    themeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      themeBtn.innerText = document.body.classList.contains('dark') ? '☀️ Light Mode' : '🌙 Dark Mode';
+    });
+  </script>
+</body>
+</html>
