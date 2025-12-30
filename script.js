@@ -48,4 +48,33 @@ window.addEventListener('scroll', () => {
   }
 });
 
+// Toggle thème
+document.getElementById('theme-toggle').addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+  localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+});
+// Charger thème
+if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark');
 
+// Slider priorité
+document.getElementById('priority-slider').addEventListener('input', (e) => {
+  document.getElementById('priority-value').textContent = e.target.value;
+  // Simulation IA : Highlight si >7
+  if (e.target.value > 7) {
+    document.querySelector('.screens-grid').classList.add('highlight');
+    document.getElementById('feedback-modal').showModal();
+  } else {
+    document.querySelector('.screens-grid').classList.remove('highlight');
+  }
+});
+
+// Fermer modale
+document.getElementById('close-modal').addEventListener('click', () => {
+  document.getElementById('feedback-modal').close();
+});
+
+// Animation scroll (parallax-like)
+window.addEventListener('scroll', () => {
+  const scrolled = window.pageYOffset;
+  document.querySelector('.hero-cv').style.transform = `translateY(${scrolled * 0.5}px)`;
+});
