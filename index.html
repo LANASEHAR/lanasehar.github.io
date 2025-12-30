@@ -4,237 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halima Essaouaf | Senior Product Designer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    
-    <style>
-        /* CSS TOKENS - Montre que tu sais structurer un projet */
-        :root {
-            --primary: #7E2929;
-            --dark: #1a1a1a;
-            --light: #f8f9fa;
-            --text-main: #333333;
-            --text-muted: #666666;
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            --container-w: 1100px;
-        }
-
-        /* RESET & BASE */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            color: var(--text-main); 
-            background: #ffffff;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .container { max-width: var(--container-w); margin: 0 auto; padding: 0 24px; }
-
-        /* HEADER - Glassmorphism effect */
-        header {
-            position: sticky;
-            top: 0;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            z-index: 100;
-            padding: 20px 0;
-            border-bottom: 1px solid #eee;
-        }
-        nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 800; font-size: 1.2rem; color: var(--primary); text-decoration: none; }
-        .nav-links a { text-decoration: none; color: var(--dark); margin-left: 30px; font-weight: 600; font-size: 0.9rem; }
-
-        /* HERO SECTION */
-        .hero { padding: 120px 0 80px; display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center; }
-        .hero-img img { 
-            width: 100%; 
-            max-width: 320px; 
-            border-radius: 40px; 
-            filter: grayscale(20%);
-            box-shadow: 30px 30px 0px var(--light);
-        }
-        .hero-content h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 24px; letter-spacing: -2px; }
-        .hero-content .tagline { font-size: 1.3rem; color: var(--text-muted); margin-bottom: 30px; }
-        
-        /* SKILLS TAGS */
-        .skills-cloud { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-        .skill-tag { 
-            background: var(--light); 
-            padding: 6px 14px; 
-            border-radius: 50px; 
-            font-size: 0.8rem; 
-            font-weight: 600; 
-            border: 1px solid #eee;
-        }
-
-        /* EXPERIENCE SNAPSHOT */
-        .snapshot { 
-            background: var(--dark); 
-            color: white; 
-            padding: 60px 0; 
-            border-radius: 40px;
-            margin-bottom: 80px;
-        }
-        .snapshot-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: center; }
-        .snapshot-item h3 { color: var(--primary); font-size: 2rem; margin-bottom: 10px; }
-
-        /* PROJECTS GRID - CSS GRID Master */
-        .section-title { font-size: 2.5rem; margin-bottom: 50px; letter-spacing: -1px; }
-        .projects-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); 
-            gap: 40px; 
-            margin-bottom: 100px;
-        }
-        .project-card { 
-            text-decoration: none; 
-            color: inherit; 
-            display: block;
-            transition: var(--transition);
-        }
-        .project-card:hover { transform: translateY(-10px); }
-        .project-image { 
-            height: 300px; 
-            background-size: cover; 
-            background-position: center; 
-            border-radius: 24px; 
-            margin-bottom: 20px;
-            border: 1px solid #eee;
-        }
-        .project-info h3 { font-size: 1.8rem; margin-bottom: 10px; }
-        .impact-text { color: var(--primary); font-weight: 700; margin: 10px 0; display: block; }
-
-        /* FOOTER CTA */
-        .cta { 
-            background: var(--light); 
-            padding: 100px 60px; 
-            border-radius: 40px; 
-            text-align: center; 
-            margin-bottom: 60px;
-        }
-        .btn { 
-            background: var(--primary); 
-            color: white; 
-            padding: 18px 40px; 
-            border-radius: 50px; 
-            text-decoration: none; 
-            display: inline-block;
-            font-weight: 700;
-            margin-top: 30px;
-            transition: var(--transition);
-        }
-        .btn:hover { transform: scale(1.05); box-shadow: 0 20px 40px rgba(126, 41, 41, 0.2); }
-
-        @media (max-width: 900px) {
-            .hero, .snapshot-grid { grid-template-columns: 1fr; }
-            .hero { text-align: center; }
-            .hero-img { order: -1; }
-            .hero-img img { box-shadow: none; }
-            .projects-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <nav class="container">
-            <a href="#" class="logo">HALIMA.ESSAOUAF</a>
-            <div class="nav-links">
-                <a href="#projects">Projects</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
+    <nav class="glass-nav">
+        <a href="#" class="brand">HALIMA<span>.</span>ESSAOUAF</a>
+        <div class="nav-links">
+            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+            <a href="mailto:essaouafhalima@gmail.com" class="cta-small">Let's Talk</a>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="hero-text">
+            <span class="badge">Available for Remote Roles</span>
+            <h1>Designing clarity for <br><span class="gradient-text">complex products.</span></h1>
+            <p>I combine cognitive psychology, UX research, and front-end thinking to design calm, intentional digital products that reduce friction and deliver business value.</p>
+            
+            <div class="skill-tags">
+                <span>Product Design</span>
+                <span>SaaS & Mobile</span>
+                <span>UX Research</span>
+                <span>Conversion Optimization</span>
+                <span>HTML / CSS / JS</span>
             </div>
-        </nav>
+        </div>
+        <div class="hero-visual">
+            <img src="https://c.superprof.com/i/m/39005647/600/20251006181230/39005647.webp" alt="Halima Essaouaf" class="profile-img">
+        </div>
     </header>
 
-    <main class="container">
+    <section class="stats-bar">
+        <div class="stat-item">
+            <h3>5 Years</h3>
+            <p>Customer Experience</p>
+        </div>
+        <div class="stat-item">
+            <h3>3+ Projects</h3>
+            <p>High-impact Case Studies</p>
+        </div>
+        <div class="stat-item">
+            <h3>Native/C1</h3>
+            <p>FR, EN (C1), DE (B1)</p>
+        </div>
+    </section>
+
+    <section id="projects" class="work-section">
+        <h2 class="section-label">Selected Work</h2>
         
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Designing clarity for complex products.</h1>
-                <p class="tagline">I combine cognitive psychology, UX research, and front-end thinking to design calm, intentional digital products that reduce friction and deliver business value.</p>
-                <div class="skills-cloud">
-                    <span class="skill-tag">Product Design</span>
-                    <span class="skill-tag">SaaS & Mobile</span>
-                    <span class="skill-tag">UX Research</span>
-                    <span class="skill-tag">Conversion Optimization</span>
-                    <span class="skill-tag">HTML / CSS / JS</span>
-                </div>
-                <div style="margin-top: 40px;">
-                    <a href="#projects" class="btn">View Case Studies</a>
+        <div class="project-list">
+            <div class="project-card">
+                <div class="project-meta">Impact: +25% Onboarding Completion</div>
+                <div class="project-content">
+                    <h3>SoftMind</h3>
+                    <p>Mental health app designed for emotional safety. Reducing anxiety for users like <strong>Adam</strong> by eliminating cognitive overload.</p>
+                    <a href="/softmind" class="project-link">Explore Case Study →</a>
                 </div>
             </div>
-            <div class="hero-img">
-                <img src="https://c.superprof.com/i/m/39005647/600/20251006181230/39005647.webp" alt="Halima Essaouaf">
-            </div>
-        </section>
 
-        <section class="snapshot">
-            <div class="snapshot-grid container">
-                <div class="snapshot-item">
-                    <h3>5 Years</h3>
-                    <p>Customer-facing & customer service experience</p>
-                </div>
-                <div class="snapshot-item">
-                    <h3>3+ Projects</h3>
-                    <p>High-impact Case Studies with measurable ROI</p>
-                </div>
-                <div class="snapshot-item">
-                    <h3>Native/C1</h3>
-                    <p>French (C2), English (C1), German (B1)</p>
+            <div class="project-card">
+                <div class="project-meta">ROI: Reduced Decision Fatigue</div>
+                <div class="project-content">
+                    <h3>Structa</h3>
+                    <p>Simplifying task management through clear hierarchy and intentional architecture. A tool that soothes the mind.</p>
+                    <a href="/structa" class="project-link">Explore Case Study →</a>
                 </div>
             </div>
-        </section>
 
-        <section id="projects">
-            <h2 class="section-title">Selected Work</h2>
-            <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-meta">Goal: Increase Browsing Time by 50%</div>
+                <div class="project-content">
+                    <h3>Paper & Soul</h3>
+                    <p>An editorial e-commerce experience for <strong>Lina</strong>. Mindful shopping focused on storytelling and discovery.</p>
+                    <a href="/paper" class="project-link">Explore Case Study →</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <a href="softmind.html" class="project-card">
-                    <div class="project-image" style="background-image: url('https://i.pinimg.com/736x/85/8d/8c/858d8c6975776eb762decaf536db30e1.jpg');"></div>
-                    <div class="project-info">
-                        <span class="impact-text">Impact: +25% Onboarding Completion</span>
-                        <h3>SoftMind</h3>
-                        <p>Mental health app designed for emotional safety. Reducing anxiety for users like <strong>Adam</strong> by eliminating cognitive overload.</p>
-                    </div>
+    <footer id="contact">
+        <div class="footer-wrap">
+            <h2>I design for the mind, <br>not just the screen.</h2>
+            <p>Let's translate your business objectives into scalable digital experiences.</p>
+            <div class="contact-grid">
+                <a href="mailto:essaouafhalima@gmail.com" class="contact-card">
+                    <span>Email</span>
+                    <strong>essaouafhalima@gmail.com</strong>
                 </a>
-
-                <a href="structa.html" class="project-card">
-                    <div class="project-image" style="background-image: url('https://i.pinimg.com/736x/a1/6a/91/a16a91989fa6ac0c27677a0799eeb912.jpg');"></div>
-                    <div class="project-info">
-                        <span class="impact-text">ROI: Reduced Decision Fatigue</span>
-                        <h3>Structa</h3>
-                        <p>Simplifying task management through clear hierarchy and intentional architecture. A tool that soothes the mind.</p>
-                    </div>
+                <a href="tel:+212619968131" class="contact-card">
+                    <span>Phone</span>
+                    <strong>+212 619 968 131</strong>
                 </a>
-
-                <a href="paper.html" class="project-card">
-                    <div class="project-image" style="background-image: url('https://i.pinimg.com/736x/9b/67/55/9b6755a4c83822b3a95e16829d38061c.jpg');"></div>
-                    <div class="project-info">
-                        <span class="impact-text">Goal: Increase Browsing Time by 50%</span>
-                        <h3>Paper & Soul</h3>
-                        <p>An editorial e-commerce experience for <strong>Lina</strong>. Mindful shopping focused on storytelling and discovery.</p>
-                    </div>
-                </a>
-
             </div>
-        </section>
-
-        <section class="cta" id="contact">
-            <h2>I design for the mind, not just the screen.</h2>
-            <p style="max-width: 600px; margin: 20px auto;">Currently open to full-time remote Product Design roles. Let's translate your business objectives into scalable digital experiences.</p>
-            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-                <a href="mailto:essaouafhalima@gmail.com" class="btn">essaouafhalima@gmail.com</a>
-                <a href="tel:+212619968131" class="btn" style="background: var(--dark);">+212 619 968 131</a>
-            </div>
-        </section>
-
-    </main>
-
-    <footer style="text-align: center; padding: 40px 0; color: var(--text-muted); font-size: 0.8rem;">
-        &copy; 2026 Halima Essaouaf. Built with Cognitive Clarity.
+            <p class="bottom-credits">© 2026 Halima Essaouaf. Built with Cognitive Clarity.</p>
+        </div>
     </footer>
 
 </body>
 </html>
-
