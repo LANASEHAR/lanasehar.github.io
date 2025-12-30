@@ -3,104 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halima Essaouaf | Senior Product Designer</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Halima Essaouaf | Senior Product Designer | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS DESIGN TOKENS - Montre ta maîtrise de la structure logicielle */
+        :root {
+            --primary: #7E2929; /* Ton rouge signature */
+            --dark: #121212;
+            --light-bg: #fbfbfb;
+            --text-main: #2d3436;
+            --text-muted: #636e72;
+            --radius: 24px;
+            --container: 1200px;
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* RESET & ACCESSIBILITÉ */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            color: var(--text-main); 
+            background: #ffffff;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container { max-width: var(--container); margin: 0 auto; padding: 0 30px; }
+
+        /* NAVIGATION - Glassmorphism */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        nav { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .logo { font-weight: 800; font-size: 1.3rem; color: var(--dark); text-decoration: none; letter-spacing: -1px; }
+        .nav-links a { text-decoration: none; color: var(--text-main); margin-left: 35px; font-weight: 600; font-size: 0.95rem; transition: var(--transition); }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* HERO - Flexbox Layout */
+        .hero { padding: 120px 0 100px; display: flex; align-items: center; gap: 80px; }
+        .hero-content { flex: 1.5; }
+        .hero-image { flex: 1; position: relative; }
+        .hero-image img { 
+            width: 100%; 
+            border-radius: var(--radius); 
+            box-shadow: 40px 40px 0px var(--light-bg);
+            transition: var(--transition);
+        }
+        .hero-image img:hover { transform: translate(10px, 10px); box-shadow: 20px 20px 0px var(--primary); }
+
+        h1 { font-size: 4.2rem; line-height: 1; letter-spacing: -3px; margin-bottom: 25px; color: var(--dark); }
+        .tagline { font-size: 1.4rem; color: var(--text-muted); margin-bottom: 35px; max-width: 600px; }
+
+        /* SKILLS TAGS */
+        .skills-wrap { display: flex; flex-wrap: wrap; gap: 12px; }
+        .tag { background: var(--light-bg); padding: 8px 18px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; border: 1px solid #eee; }
+
+        /* KPI SECTION - Montre l'impact business */
+        .stats-bar { background: var(--dark); color: white; padding: 80px 0; border-radius: 40px; margin: 40px 0 100px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; }
+        .stat-item h2 { font-size: 3rem; color: var(--primary); margin-bottom: 5px; }
+        .stat-item p { opacity: 0.7; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* PROJECTS - CSS Grid Master */
+        .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); gap: 50px; }
+        .project-card { text-decoration: none; color: inherit; group; }
+        .img-container { 
+            width: 100%; height: 350px; overflow: hidden; border-radius: var(--radius); 
+            margin-bottom: 25px; border: 1px solid #eee; background-size: cover; background-position: center;
+            transition: var(--transition);
+        }
+        .project-card:hover .img-container { transform: scale(0.98); }
+        .project-info h3 { font-size: 2rem; margin-bottom: 10px; letter-spacing: -1px; }
+        .project-impact { color: var(--primary); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 10px; display: block; }
+
+        /* CONTACT & FOOTER */
+        .footer-cta { background: var(--light-bg); padding: 100px 0; border-radius: 60px; text-align: center; margin: 100px 0 50px; }
+        .btn-main { 
+            background: var(--primary); color: white; padding: 20px 45px; border-radius: 100px; 
+            text-decoration: none; font-weight: 700; display: inline-block; margin-top: 30px;
+            transition: var(--transition);
+        }
+        .btn-main:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(126, 41, 41, 0.2); }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .hero { flex-direction: column; text-align: center; }
+            h1 { font-size: 3rem; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; gap: 40px; }
+        }
+    </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <a href="#" class="logo">HALIMA<span>.</span>ESSAOUAF</a>
-        <div class="nav-links">
-            <a href="#projects">Projects</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
-
-    <header class="hero">
-        <div class="hero-container">
-            <div class="hero-text">
-                <h1>Designing clarity for <span class="highlight">complex products.</span></h1>
-                <p class="main-bio">I combine cognitive psychology, UX research, and front-end thinking to design calm, intentional digital products that reduce friction and deliver business value.</p>
-                
-                <div class="skill-cloud">
-                    <span>Product Design</span><span>SaaS & Mobile</span><span>UX Research</span>
-                    <span>Conversion Optimization</span><span>HTML / CSS / JS</span>
-                </div>
-
-                <div class="hero-btns">
-                    <a href="#projects" class="btn-main">View Case Studies</a>
-                </div>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">HALIMA.E</a>
+            <div class="nav-links">
+                <a href="#projects">Work</a>
+                <a href="#about">Manifesto</a>
+                <a href="#contact">Contact</a>
             </div>
-            <div class="hero-visual">
-                <img src="https://c.superprof.com/i/m/39005647/600/20251006181230/39005647.webp" alt="Halima Essaouaf">
-                <div class="experience-badge">
-                    <strong>5 Years</strong>
-                    <span>Experience</span>
-                </div>
-            </div>
-        </div>
+        </nav>
     </header>
 
-    <section class="quick-stats">
-        <div class="stat-box">
-            <h3>3+ Projects</h3>
-            <p>High-impact Case Studies with measurable ROI</p>
-        </div>
-        <div class="stat-box">
-            <h3>Native/C1</h3>
-            <p>French (C2), English (C1), German (B1)</p>
-        </div>
-    </section>
-
-    <section id="projects" class="work-grid">
-        <h2 class="label">Selected Work</h2>
-
-        <article class="card">
-            <div class="card-header">Impact: +25% Onboarding Completion</div>
-            <div class="card-body">
-                <h3>SoftMind</h3>
-                <p>Mental health app designed for emotional safety. Reducing anxiety for users like <strong>Adam</strong> by eliminating cognitive overload.</p>
-                <a href="/softmind" class="case-link">Explore Case Study →</a>
+    <main class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Designing clarity <br>for the mind.</h1>
+                <p class="tagline">I combine cognitive psychology and UX research to design calm, intentional digital products that reduce friction and deliver measurable business value.</p>
+                <div class="skills-wrap">
+                    <span class="tag">Behavioral Design</span>
+                    <span class="tag">SaaS Architecture</span>
+                    <span class="tag">UX Research</span>
+                    <span class="tag">HTML/CSS/JS</span>
+                </div>
             </div>
-        </article>
-
-        <article class="card">
-            <div class="card-header">ROI: Reduced Decision Fatigue</div>
-            <div class="card-body">
-                <h3>Structa</h3>
-                <p>Simplifying task management through clear hierarchy and intentional architecture. A tool that soothes the mind.</p>
-                <a href="/structa" class="case-link">Explore Case Study →</a>
+            <div class="hero-image">
+                <img src="https://c.superprof.com/i/m/39005647/600/20251006181230/39005647.webp" alt="Halima Essaouaf">
             </div>
-        </article>
+        </section>
 
-        <article class="card">
-            <div class="card-header">Goal: Increase Browsing Time by 50%</div>
-            <div class="card-body">
-                <h3>Paper & Soul</h3>
-                <p>An editorial e-commerce experience for <strong>Lina</strong>. Mindful shopping focused on storytelling and discovery.</p>
-                <a href="/paper" class="case-link">Explore Case Study →</a>
+        <section class="stats-bar">
+            <div class="stats-grid container">
+                <div class="stat-item">
+                    <h2>5 Yrs</h2>
+                    <p>Customer Service Excellence</p>
+                </div>
+                <div class="stat-item">
+                    <h2>+25%</h2>
+                    <p>Estimated Conversion Lift</p>
+                </div>
+                <div class="stat-item">
+                    <h2>Native</h2>
+                    <p>FR (C2) / EN (C1) / DE (B1)</p>
+                </div>
             </div>
-        </article>
-    </section>
+        </section>
 
-    <footer id="contact">
-        <div class="footer-content">
-            <h2>I design for the mind, not just the screen.</h2>
-            <p>Currently open to full-time remote Product Design roles.</p>
-            <div class="contact-methods">
-                <a href="mailto:essaouafhalima@gmail.com" class="c-item">
-                    <small>Email</small>
-                    <span>essaouafhalima@gmail.com</span>
+        <section id="projects">
+            <div class="section-header">
+                <h2 style="font-size: 3rem; letter-spacing: -2px;">Selected Work</h2>
+            </div>
+            
+            <div class="projects-grid">
+                <a href="softmind.html" class="project-card">
+                    <div class="img-container" style="background-image: url('https://i.pinimg.com/736x/85/8d/8c/858d8c6975776eb762decaf536db30e1.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-impact">UX Goal: Reduce Cognitive Overload</span>
+                        <h3>SoftMind</h3>
+                        <p>Mental health tracking designed for users like <strong>Adam</strong>. A safe space that alleviates daily stress through emotional UX.</p>
+                    </div>
                 </a>
-                <a href="tel:+212619968131" class="c-item">
-                    <small>Phone</small>
-                    <span>+212 619 968 131</span>
+
+                <a href="structa.html" class="project-card">
+                    <div class="img-container" style="background-image: url('https://i.pinimg.com/736x/a1/6a/91/a16a91989fa6ac0c27677a0799eeb912.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-impact">SaaS: Simplify Decision Making</span>
+                        <h3>Structa</h3>
+                        <p>Efficiency-driven productivity tool. Translating complex tasks into clear, intentional hierarchies for faster execution.</p>
+                    </div>
+                </a>
+
+                <a href="paper.html" class="project-card">
+                    <div class="img-container" style="background-image: url('https://i.pinimg.com/736x/9b/67/55/9b6755a4c83822b3a95e16829d38061c.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-impact">Retail: +50% Browsing Engagement</span>
+                        <h3>Paper & Soul</h3>
+                        <p>Mindful e-commerce for <strong>Lina</strong>. Editorial journey focused on storytelling and creative discovery.</p>
+                    </div>
                 </a>
             </div>
-            <p class="credits">© 2026 Halima Essaouaf. Built with Cognitive Clarity.</p>
-        </div>
+        </section>
+
+        <section class="footer-cta" id="contact">
+            <h2>Let’s build something intentional.</h2>
+            <p style="margin-top: 15px; color: var(--text-muted);">Currently open to Senior Product Design roles and strategic collaborations.</p>
+            <a href="mailto:essaouafhalima@gmail.com" class="btn-main">Get in Touch</a>
+        </section>
+    </main>
+
+    <footer style="text-align: center; padding-bottom: 50px; font-size: 0.85rem; color: #999;">
+        &copy; 2026 Halima Essaouaf • Designed for Clarity.
     </footer>
 
 </body>
