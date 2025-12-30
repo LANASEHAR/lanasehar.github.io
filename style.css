@@ -553,3 +553,57 @@ body {
   box-shadow:
     0 30px 60px rgba(0,0,0,0.2),
     0 0 0 1px rgba(126
+
+:root {
+  /* Existants + ajouts */
+  --bg-color: #fff8f9;
+  --text-color: #2e2e3a;
+}
+.dark {
+  --bg-color: #2e2e3a;
+  --text-color: #f7f7f9;
+}
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.5s, color 0.5s; /* Transition fluide */
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+.btn-primary:hover {
+  animation: pulse 0.6s ease; /* Pulsation captivante */
+}
+.project-card.pro:hover {
+  transform: translateY(-15px); /* Plus dynamique */
+  box-shadow: 0 35px 70px rgba(0,0,0,0.15);
+}
+.section { /* Nouvelle classe pour sections */
+  transition: opacity 0.5s, transform 0.5s;
+}
+.section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.btn:focus, .nav-item:focus {
+  outline: 2px solid var(--color-primary); /* Accessibilité clavier */
+}
+.project-card.pro, img {
+  will-change: transform; /* Performance pour animations */
+}
+/* Complète la coupure */
+.contact-card:hover {
+  box-shadow: 0 30px 60px rgba(0,0,0,0.2), 0 0 0 1px rgba(126,41,41,0.2);
+}
+
+/* Ajouts pour Structa spécifique */
+.case-study.structa .section {
+  background: var(--structa-bg);
+  color: var(--structa-accent);
+}
+.highlight { /* Pour simulation IA */
+  background: yellow;
+  transition: background 0.3s;
+}
