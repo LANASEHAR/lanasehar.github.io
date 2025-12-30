@@ -3,72 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Halima Essaouaf - Senior Product Designer specializing in UX Research and Cognitive Psychology.">
     <title>Halima Essaouaf | Senior Product Designer</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header class="navbar">
+    <nav class="navbar">
         <a href="#" class="logo">HALIMA<span>.</span>ESSAOUAF</a>
-        <nav>
-            <ul>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="mailto:essaouafhalima@gmail.com" class="btn-contact">Contact Me</a></li>
-            </ul>
-        </nav>
+        <div class="nav-links">
+            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>Designing clarity for <span class="highlight">complex products.</span></h1>
+                <p class="main-bio">I combine cognitive psychology, UX research, and front-end thinking to design calm, intentional digital products that reduce friction and deliver business value.</p>
+                
+                <div class="skill-cloud">
+                    <span>Product Design</span><span>SaaS & Mobile</span><span>UX Research</span>
+                    <span>Conversion Optimization</span><span>HTML / CSS / JS</span>
+                </div>
+
+                <div class="hero-btns">
+                    <a href="#projects" class="btn-main">View Case Studies</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <img src="https://c.superprof.com/i/m/39005647/600/20251006181230/39005647.webp" alt="Halima Essaouaf">
+                <div class="experience-badge">
+                    <strong>5 Years</strong>
+                    <span>Experience</span>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Designing clarity for <span class="highlight">complex products.</span></h1>
-                <p>I combine cognitive psychology and UX research to design intentional digital products that reduce friction and deliver business value.</p>
-                <div class="tags">
-                    <span>Product Design</span>
-                    <span>UX Research</span>
-                    <span>SaaS & Mobile</span>
-                </div>
-                <a href="#projects" class="cta-main">View Case Studies</a>
-            </div>
-            <div class="hero-image">
-                <img src="https://c.superprof.com/i/m/39005647/600/20251006181230/39005647.webp" alt="Halima Essaouaf">
-            </div>
-        </section>
-
-        <section id="projects" class="projects-grid">
-            <h2 class="section-title">Selected Work</h2>
-            <div class="grid">
-                <article class="project-card">
-                    <div class="project-info">
-                        <span class="impact">+25% Onboarding Completion</span>
-                        <h3>SoftMind</h3>
-                        <p>Mental health app designed for emotional safety and cognitive clarity.</p>
-                        <a href="/softmind" class="read-more">View Case Study →</a>
-                    </div>
-                </article>
-                <article class="project-card">
-                    <div class="project-info">
-                        <span class="impact">ROI: Reduced Fatigue</span>
-                        <h3>Structa</h3>
-                        <p>Simplifying task management through clear hierarchy and architecture.</p>
-                        <a href="/structa" class="read-more">View Case Study →</a>
-                    </div>
-                </article>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <h2>Let's design for the mind.</h2>
-        <p>Currently open to full-time remote roles.</p>
-        <div class="footer-links">
-            <a href="mailto:essaouafhalima@gmail.com">essaouafhalima@gmail.com</a>
-            <a href="tel:+212619968131">+212 619 968 131</a>
+    <section class="quick-stats">
+        <div class="stat-box">
+            <h3>3+ Projects</h3>
+            <p>High-impact Case Studies with measurable ROI</p>
         </div>
-        <p class="copyright">© 2026 Halima Essaouaf. Built with Cognitive Clarity.</p>
+        <div class="stat-box">
+            <h3>Native/C1</h3>
+            <p>French (C2), English (C1), German (B1)</p>
+        </div>
+    </section>
+
+    <section id="projects" class="work-grid">
+        <h2 class="label">Selected Work</h2>
+
+        <article class="card">
+            <div class="card-header">Impact: +25% Onboarding Completion</div>
+            <div class="card-body">
+                <h3>SoftMind</h3>
+                <p>Mental health app designed for emotional safety. Reducing anxiety for users like <strong>Adam</strong> by eliminating cognitive overload.</p>
+                <a href="/softmind" class="case-link">Explore Case Study →</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="card-header">ROI: Reduced Decision Fatigue</div>
+            <div class="card-body">
+                <h3>Structa</h3>
+                <p>Simplifying task management through clear hierarchy and intentional architecture. A tool that soothes the mind.</p>
+                <a href="/structa" class="case-link">Explore Case Study →</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="card-header">Goal: Increase Browsing Time by 50%</div>
+            <div class="card-body">
+                <h3>Paper & Soul</h3>
+                <p>An editorial e-commerce experience for <strong>Lina</strong>. Mindful shopping focused on storytelling and discovery.</p>
+                <a href="/paper" class="case-link">Explore Case Study →</a>
+            </div>
+        </article>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <h2>I design for the mind, not just the screen.</h2>
+            <p>Currently open to full-time remote Product Design roles.</p>
+            <div class="contact-methods">
+                <a href="mailto:essaouafhalima@gmail.com" class="c-item">
+                    <small>Email</small>
+                    <span>essaouafhalima@gmail.com</span>
+                </a>
+                <a href="tel:+212619968131" class="c-item">
+                    <small>Phone</small>
+                    <span>+212 619 968 131</span>
+                </a>
+            </div>
+            <p class="credits">© 2026 Halima Essaouaf. Built with Cognitive Clarity.</p>
+        </div>
     </footer>
 
 </body>
