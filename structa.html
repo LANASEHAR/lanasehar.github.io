@@ -1,23 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr"> <!-- Changé pour accessibilité si français -->
 <head>
   <meta charset="UTF-8">
   <title>Structa – Productivity Tool Case Study | Halima Essaouaf</title>
   <meta name="description" content="Structa: A UX/UI case study on designing a productivity app to reduce cognitive overload through simplified task management. Includes user research, design iterations, and measurable impact.">
   <meta name="keywords" content="UX/UI design, productivity app, cognitive load reduction, task management, Figma prototype, Halima Essaouaf">
   <link rel="stylesheet" href="style.css">
+  <link rel="preload" href="style.css" as="style"> <!-- Optimisation performance -->
+  <style>
+    /* Variables CSS pour thèmes */
+    :root { --bg-color: #fff; --text-color: #000; }
+    .dark { --bg-color: #121212; --text-color: #fff; }
+    body { background: var(--bg-color); color: var(--text-color); transition: background 0.3s; }
+    .section { transition: transform 0.3s ease; }
+    .section:hover { transform: scale(1.02); }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .intro { animation: fadeIn 1s; }
+  </style>
 </head>
 
-<body>
+<body class="grid-container"> <!-- Structure responsive -->
 
-<main class="case-study structa">
+<main class="case-study structa" role="main">
 
   <!-- BACK -->
-  <a href="index.html" class="back">← Back to Portfolio</a>
+  <a href="index.html" class="back" aria-label="Retour au portfolio">← Back to Portfolio</a>
+
+  <!-- THEME TOGGLE -->
+  <button id="theme-toggle" aria-label="Basculer thème sombre/clair">Toggle Theme</button>
 
   <!-- INTRO -->
-  <section class="intro">
-    <h1>Structa</h1>
+  <section class="intro section" aria-labelledby="intro-heading">
+    <h1 id="intro-heading">Structa</h1>
     <p class="subtitle">
       A productivity tool designed to reduce cognitive overload, not increase it—empowering users to focus on what matters without the chaos of modern task managers.
     </p>
@@ -27,7 +41,7 @@
   </section>
 
   <!-- CONTEXT -->
-  <section class="overview">
+  <section class="overview section">
     <h2>Project Overview</h2>
     <p>
       Structa is a conceptual productivity app developed to address the paradox of tools meant to boost efficiency but often causing more stress. By prioritizing simplicity and progressive disclosure, it helps users manage tasks without overwhelming their cognitive resources.
@@ -36,7 +50,7 @@
   </section>
 
   <!-- ROLE -->
-  <section>
+  <section class="section">
     <h2>My Role</h2>
     <p>
       As the sole Product Designer, I handled user research, UX strategy, wireframing, prototyping, and iterative testing to ensure the design aligned with cognitive psychology principles and user needs.
@@ -44,7 +58,7 @@
   </section>
 
   <!-- PROBLEM -->
-  <section>
+  <section class="section">
     <h2>Problem Statement</h2>
     <p>
       Productivity apps like Trello or Asana bombard users with features, hierarchies, and notifications, leading to decision fatigue, stress, and app abandonment. Users report feeling "paralyzed" by choices, with studies showing 60% of users quitting tools within months due to overload.
@@ -52,7 +66,7 @@
   </section>
 
   <!-- USER RESEARCH -->
-  <section>
+  <section class="section">
     <h2>User Research & Insights</h2>
     <p>
       I conducted surveys with 20 remote workers/students and analyzed competitor reviews. Key insights:
@@ -66,7 +80,7 @@
   </section>
 
   <!-- PERSONA -->
-  <section>
+  <section class="section">
     <h2>User Persona</h2>
     <p>
       <strong>Sarah, 26 — Remote Worker/Student</strong><br>
@@ -75,7 +89,7 @@
   </section>
 
   <!-- OBJECTIVE -->
-  <section>
+  <section class="section">
     <h2>Objective</h2>
     <p>
       Reduce cognitive overload in task organization by simplifying hierarchies and minimizing decisions, fostering sustained productivity.
@@ -85,10 +99,14 @@
       <li>≤ 5 visible choices per screen</li>
       <li>↑ User clarity score from 5/10 to 8/10 (based on post-test surveys)</li>
     </ul>
+    <!-- Élément interactif : Slider pour priorité -->
+    <label for="priority-slider">Simuler Priorité Cognitive :</label>
+    <input id="priority-slider" type="range" min="1" max="10" value="5" aria-label="Ajuster la priorité">
+    <span id="priority-value">5</span>/10
   </section>
 
   <!-- UX HYPOTHESIS -->
-  <section>
+  <section class="section">
     <h2>UX Hypothesis</h2>
     <p>
       If we reduce visible choices and guide users step-by-step through progressive disclosure, they will feel less overwhelmed and more in control, leading to higher task completion rates.
@@ -96,7 +114,7 @@
   </section>
 
   <!-- STRATEGY -->
-  <section>
+  <section class="section">
     <h2>UX Strategy</h2>
     <ul>
       <li><strong>Focus Principle:</strong> One primary action per screen to eliminate distractions.</li>
@@ -107,7 +125,7 @@
   </section>
 
   <!-- DESIGN ITERATIONS -->
-  <section>
+  <section class="section">
     <h2>Design Iterations</h2>
     <p>
       Iterated from low-fidelity sketches to high-fidelity prototypes over 3 rounds:
@@ -121,7 +139,7 @@
   </section>
 
   <!-- FLOW -->
-  <section>
+  <section class="section">
     <h2>User Flow</h2>
     <p>
       A streamlined, low-effort journey:
@@ -136,7 +154,7 @@
   </section>
 
   <!-- CHALLENGES -->
-  <section>
+  <section class="section">
     <h2>Challenges & Solutions</h2>
     <p>
       Balancing simplicity with functionality was key—users wanted customization but not complexity. Solution: Optional advanced settings hidden behind a "More" button, maintaining core minimalism.
@@ -144,19 +162,19 @@
   </section>
 
   <!-- SCREENS -->
-  <section>
+  <section class="section">
     <h2>UI Screens</h2>
     <p class="muted">
       High-fidelity screens showcasing the clean, focused interface.
     </p>
     <div class="screens-grid">
-      <img src="https://raw.githubusercontent.com/LANASEHAR/Myportfolio/refs/heads/main/HomepageSTRUCTA.png" alt="Structa home screen: Minimalist dashboard with one highlighted task and clear call-to-action for adding new items.">
+      <img src="https://raw.githubusercontent.com/LANASEHAR/Myportfolio/refs/heads/main/HomepageSTRUCTA.png" alt="Structa home screen: Minimalist dashboard with one highlighted task and clear call-to-action for adding new items." loading="lazy">
       <!-- Add more images if available, e.g., task creation or completion screens -->
     </div>
   </section>
 
   <!-- FIGMA EMBED -->
-  <section>
+  <section class="section">
     <h2>Interactive Figma Prototype</h2>
     <p>Explore the full interactive experience below.</p>
     <div class="figma-embed">
@@ -168,7 +186,7 @@
   </section>
 
   <!-- TESTING -->
-  <section>
+  <section class="section">
     <h2>Usability Testing & Validation</h2>
     <p>
       Tested with 15 users via Maze. Results: Task creation time dropped 28%, and clarity scores rose to 8.2/10. Users praised the "stress-free" feel, with 90% completing flows without errors.
@@ -176,19 +194,57 @@
   </section>
 
   <!-- LEARNINGS -->
-  <section>
+  <section class="section">
     <h2>Key Learnings & Impact</h2>
     <p>
       Cognitive overload is a design problem, not a user flaw. By reducing information, Structa achieved 35% higher simulated task completion rates. This project taught me that empathy-driven minimalism leads to better user outcomes and long-term engagement.
     </p>
     <p><strong>Next Steps:</strong> I'd integrate AI for smart prioritization and conduct longitudinal studies to measure real-world stress reduction.</p>
+    <!-- Bouton pour simulation IA -->
+    <button id="ai-simulate" aria-label="Simuler IA pour priorisation">Simuler IA Priorisation</button>
   </section>
+
+  <!-- MODALE FEEDBACK -->
+  <dialog id="feedback-modal" aria-labelledby="modal-title">
+    <h3 id="modal-title">Feedback Utilisateur Simulé</h3>
+    <p>Grâce à l'IA, cette tâche est priorisée pour réduire votre charge cognitive !</p>
+    <button id="close-modal">Fermer</button>
+  </dialog>
 
 </main>
 
+<script>
+  // Toggle thème
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+  });
+  // Charger thème sauvegardé
+  if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark');
+
+  // Slider priorité
+  document.getElementById('priority-slider').addEventListener('input', (e) => {
+    document.getElementById('priority-value').textContent = e.target.value;
+  });
+
+  // Simulation IA
+  document.getElementById('ai-simulate').addEventListener('click', () => {
+    const task = document.querySelector('.task-example') || document.querySelector('li'); // Exemple
+    if (task) {
+      task.style.background = 'yellow';
+      setTimeout(() => task.style.background = '', 2000);
+    }
+    document.getElementById('feedback-modal').showModal();
+  });
+
+  // Fermer modale
+  document.getElementById('close-modal').addEventListener('click', () => {
+    document.getElementById('feedback-modal').close();
+  });
+</script>
+
 </body>
 </html>
-
 
 
 
