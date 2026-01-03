@@ -89,20 +89,30 @@
         .stat-item h2 { font-size: 4rem; color: var(--primary); margin-bottom: 10px; font-weight: 800; letter-spacing: -2px; }
         .stat-item p { opacity: 0.6; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; }
 
-        /* PROJECTS */
-        .section-header h2 { font-size: 3.5rem; letter-spacing: -3px; margin-bottom: 60px; font-weight: 800; }
-        .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 60px; }
-        .project-card { text-decoration: none; color: inherit; display: block; }
-        
-        .img-container { 
-            width: 100%; height: 450px; overflow: hidden; border-radius: var(--radius); 
-            margin-bottom: 30px; border: 1px solid rgba(0,0,0,0.05); background-size: cover; background-position: center;
-            transition: var(--transition); position: relative;
-        }
-        .project-card:hover .img-container { transform: translateY(-15px); box-shadow: 0 40px 80px rgba(0,0,0,0.15); }
-        .project-info h3 { font-size: 2.2rem; margin-bottom: 15px; letter-spacing: -1.5px; font-weight: 700; }
-        .project-impact { color: var(--primary); font-weight: 800; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 12px; display: block; letter-spacing: 1px; }
+       <div class="projects-container">
 
+    <div class="project-card">
+        <a href="softmind.html">
+            <img src="HomeSOFTMIND.png" alt="Projet Softmind">
+            <h3>SOFTMIND</h3>
+        </a>
+    </div>
+
+    <div class="project-card">
+        <a href="structa.html">
+            <img src="HomepageSTRUCTA.png" alt="Projet Structa">
+            <h3>STRUCTA</h3>
+        </a>
+    </div>
+
+    <div class="project-card">
+        <a href="paper.html">
+            <img src="Calm%20Exercise.png" alt="Projet Paper">
+            <h3>PAPER</h3>
+        </a>
+    </div>
+
+</div>
         /* FOOTER CTA */
         .footer-cta { background: var(--light-bg); padding: 120px 40px; border-radius: 80px; text-align: center; margin: 120px 0 60px; }
         .footer-cta h2 { font-size: 3.5rem; letter-spacing: -2px; font-weight: 800; }
@@ -232,4 +242,5 @@
     </script>
 </body> 
 </html>
+
 
