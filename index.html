@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halima Essaouaf | Product Designer Portfolio</title>
+    <title>Halima Essaouaf | UX Designer & HTML/CSS Expert</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -43,20 +43,25 @@
         .nav-links a:hover { color: var(--primary); }
 
         /* HERO */
-        .hero { padding: 180px 0 100px; display: flex; align-items: center; gap: 60px; }
+        .hero { padding: 180px 0 80px; display: flex; align-items: center; gap: 60px; }
         .hero-content { flex: 1.2; }
-        h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1; letter-spacing: -3px; margin-bottom: 25px; font-weight: 800; color: var(--dark); }
-        .tagline { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 35px; max-width: 500px; }
+        h1 { font-size: clamp(2.5rem, 6vw, 4.2rem); line-height: 1; letter-spacing: -3px; margin-bottom: 25px; font-weight: 800; color: var(--dark); }
+        .tagline { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 35px; max-width: 550px; }
         .hero-image { flex: 1; }
         .hero-image img { width: 100%; border-radius: var(--radius); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
 
         .tag { background: var(--light-bg); padding: 8px 16px; border-radius: 100px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-right: 8px; border: 1px solid rgba(0,0,0,0.05); }
 
         /* STATS */
-        .stats-bar { background: var(--dark); color: white; padding: 60px 0; border-radius: 40px; margin-bottom: 100px; }
+        .stats-bar { background: var(--dark); color: white; padding: 60px 0; border-radius: 40px; margin-bottom: 80px; }
         .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; }
-        .stat-item h2 { font-size: 3rem; color: var(--primary); font-weight: 800; }
-        .stat-item p { opacity: 0.7; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        .stat-item h2 { font-size: 2.5rem; color: var(--primary); font-weight: 800; }
+        .stat-item p { opacity: 0.7; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+
+        /* WHY ME SECTION */
+        .why-me { padding: 40px 0 100px; max-width: 850px; }
+        .why-me h2 { font-size: 2.5rem; font-weight: 800; letter-spacing: -1.5px; margin-bottom: 20px; }
+        .why-me p { font-size: 1.15rem; color: var(--text-muted); }
 
         /* PROJECTS */
         .section-header { margin-bottom: 50px; }
@@ -67,7 +72,8 @@
         .img-box img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: var(--transition); }
         .project-card:hover { transform: translateY(-10px); }
         .project-card:hover img { transform: scale(1.05); }
-        .project-info h3 { font-size: 1.8rem; font-weight: 700; }
+        .project-info h3 { font-size: 1.8rem; font-weight: 700; margin-bottom: 5px; }
+        .project-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px; display: block; }
         .project-label { color: var(--primary); font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
 
         /* CONTACT */
@@ -97,12 +103,13 @@
     <main class="container">
         <section class="hero">
             <div class="hero-content">
-                <h1>Designing clarity for the mind.</h1>
-                <p class="tagline">Product Designer blending cognitive psychology and UX research to build intentional, friction-free digital experiences.</p>
+                <span class="tag" style="color: var(--primary); background: rgba(126, 41, 41, 0.1); border: none; margin-bottom: 20px; display: inline-block;">Available for Remote Opportunities</span>
+                <h1>Bridging <span style="color: var(--primary);">User Empathy</span> with Clean Code.</h1>
+                <p class="tagline">With 5 years of frontline user advocacy, I design digital products rooted in cognitive psychology and deliver them with production-ready HTML/CSS.</p>
                 <div>
                     <span class="tag">UX Research</span>
+                    <span class="tag">HTML5 / CSS3</span>
                     <span class="tag">Behavioral Design</span>
-                    <span class="tag">Product Strategy</span>
                 </div>
             </div>
             <div class="hero-image">
@@ -112,10 +119,27 @@
 
         <section class="stats-bar">
             <div class="stats-grid container">
-                <div class="stat-item"><h2>5 Yrs</h2><p>Experience</p></div>
-                <div class="stat-item"><h2>+25%</h2><p>Conversion Lift</p></div>
-                <div class="stat-item"><h2>Native</h2><p>FR / EN / DE</p></div>
+                <div class="stat-item">
+                    <h2>5+ Years</h2>
+                    <p>User Advocacy Experience</p>
+                </div>
+                <div class="stat-item">
+                    <h2>Code-Sync</h2>
+                    <p>Production-Ready HTML/CSS</p>
+                </div>
+                <div class="stat-item">
+                    <h2>Native</h2>
+                    <p>FR / EN / DE</p>
+                </div>
             </div>
+        </section>
+
+        <section class="why-me">
+            <span class="project-label">Strategy</span>
+            <h2>The Designer who speaks "User" and "Developer".</h2>
+            <p>
+                I don't just design screens; I solve business friction. My background in <strong>Customer Service</strong> taught me to solve complex user pain points in real-time. Today, I use that empathy to build designs that work, and my <strong>HTML/CSS</strong> mastery ensures they are technically perfect for your dev team.
+            </p>
         </section>
 
         <section id="work">
@@ -131,6 +155,7 @@
                     <div class="project-info">
                         <span class="project-label">Mental Health Tech</span>
                         <h3>SOFTMIND</h3>
+                        <span class="project-desc">Reducing cognitive load in mental health tracking.</span>
                     </div>
                 </a>
 
@@ -141,6 +166,7 @@
                     <div class="project-info">
                         <span class="project-label">SaaS Architecture</span>
                         <h3>STRUCTA</h3>
+                        <span class="project-desc">Streamlining SaaS architecture for technical teams.</span>
                     </div>
                 </a>
 
@@ -151,6 +177,7 @@
                     <div class="project-info">
                         <span class="project-label">Design System & UX</span>
                         <h3>PAPER & SOUL</h3>
+                        <span class="project-desc">A minimalist UI system focused on deep work and focus.</span>
                     </div>
                 </a>
 
@@ -158,17 +185,18 @@
         </section>
 
         <section class="cta-section" id="contact">
-            <h2>Ready to work together?</h2>
-            <p>I'm currently looking for new opportunities in Product Design.</p>
+            <h2>Let's build something intentional.</h2>
+            <p>I am currently open to Product Design roles in remote-first companies.</p>
             <a href="mailto:essaouafhalima@gmail.com" class="btn">Get in Touch</a>
         </section>
     </main>
 
     <footer style="text-align: center; padding: 40px; color: var(--text-muted); font-size: 0.8rem;">
-        &copy; 2026 Halima Essaouaf • Product Designer
+        &copy; 2026 Halima Essaouaf &bull; User Advocate & Product Designer
     </footer>
 
 </body>
 </html>
+
 
 
