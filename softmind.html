@@ -10,10 +10,12 @@
     
     <style>
         :root {
-            /* SOFTMIND BRAND PALETTE (Calm & Therapeutic) */
+            /* BRAND PALETTE */
             --soft-blue: #eef4fb;
             --soft-green: #e9f5f2;
-            --softmind-accent: #d96c8a; /* Soft rose from your palette */
+            --soft-rose: #fff7f9;
+            --softmind-accent: #d96c8a; 
+            --purple-main: #8e44ad;
             --primary-dark: #2c3e50;
             --text-main: #34495e;
             --text-muted: #7f8c8d;
@@ -23,12 +25,14 @@
             --radius-lg: 32px;
             --radius-sm: 16px;
             --shadow-soft: 0 15px 45px rgba(44, 62, 80, 0.05);
-            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
+        * { box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--soft-blue); /* Calm background start */
+            background-color: var(--soft-blue);
             color: var(--text-main);
             margin: 0;
             line-height: 1.8;
@@ -38,68 +42,67 @@
         /* Reading Progress Bar */
         .progress-bar {
             position: fixed;
-            top: 0; left: 0; height: 5px;
-            background: linear-gradient(90deg, var(--softmind-accent), #8e44ad);
+            top: 0; left: 0; height: 6px;
+            background: linear-gradient(90deg, var(--softmind-accent), var(--purple-main));
             width: 0%; z-index: 1000;
+            transition: width 0.1s ease-out;
         }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
 
-        /* HEADER */
-        nav { padding: 40px 0; display: flex; justify-content: space-between; align-items: center; }
-        .back-link { text-decoration: none; color: var(--primary-dark); font-weight: 700; display: flex; align-items: center; gap: 8px; }
+        /* NAVIGATION */
+        nav { 
+            padding: 40px 0; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        .back-link { 
+            text-decoration: none; 
+            color: var(--primary-dark); 
+            font-weight: 700; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            transition: var(--transition);
+        }
+        .back-link:hover { opacity: 0.7; transform: translateX(-5px); }
 
         /* SECTIONS */
         .section {
             background: var(--white);
-            padding: 80px 60px;
+            padding: 60px;
             border-radius: var(--radius-lg);
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             box-shadow: var(--shadow-soft);
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(40px);
             transition: var(--transition);
         }
 
         .section.active { opacity: 1; transform: translateY(0); }
 
-        h1 { font-size: clamp(3rem, 8vw, 5rem); letter-spacing: -0.05em; color: var(--primary-dark); margin: 0; }
-        h2 { font-size: 2.2rem; color: var(--softmind-accent); margin-bottom: 24px; border-bottom: 2px solid var(--soft-blue); display: inline-block; }
+        /* Specific Section Styles */
+        .section.problem { background: var(--soft-rose); }
+        .section.problem h2 { color: var(--softmind-accent); }
         
-        .hero { text-align: center; padding: 80px 0; background: transparent; box-shadow: none; opacity: 1; transform: none; }
-        .subtitle { font-size: 1.4rem; color: var(--text-muted); max-width: 850px; margin: 24px auto; }
-
-        /* CAPTIVATING SCREEN GALLERY (Small & Elegant) */
-        .screens-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 24px;
-            margin: 40px 0;
+        .section.flow ul, .section.decisions ul {
+            list-style: none;
+            padding: 0;
         }
+        
+        .section.flow li::before { content: "→ "; color: var(--purple-main); font-weight: bold; }
+        .section.decisions li::before { content: "• "; color: var(--softmind-accent); font-weight: bold; font-size: 1.5rem; vertical-align: middle; }
 
-        .screen-item {
-            background: var(--soft-blue);
-            border-radius: var(--radius-sm);
-            overflow: hidden;
-            transition: var(--transition);
-            text-align: center;
-            border: 1px solid rgba(0,0,0,0.02);
-        }
+        /* TYPOGRAPHY */
+        h1 { font-size: clamp(3.5rem, 10vw, 5.5rem); letter-spacing: -0.05em; color: var(--primary-dark); margin: 0; line-height: 1; }
+        h2 { font-size: 2rem; color: var(--primary-dark); margin-bottom: 24px; position: relative; display: inline-block; }
+        h2::after { content: ''; position: absolute; bottom: -8px; left: 0; width: 40px; height: 4px; background: var(--softmind-accent); border-radius: 2px; }
 
-        .screen-item:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .hero { text-align: center; padding: 100px 0 60px; }
+        .subtitle { font-size: 1.4rem; color: var(--text-muted); max-width: 800px; margin: 24px auto; font-weight: 400; }
 
-        .screen-item img {
-            width: 100%;
-            height: auto;
-            max-height: 450px; /* Kept small and focused */
-            object-fit: contain;
-            padding: 20px;
-            background: #fff;
-        }
-
-        .screen-caption { padding: 15px; font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
-
-        /* KPI / IMPACT BOXES */
+        /* KPI CARDS */
         .kpi-row {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -112,11 +115,14 @@
             padding: 30px;
             border-radius: var(--radius-sm);
             text-align: center;
+            transition: var(--transition);
         }
-
+        
+        .kpi-card:hover { transform: translateY(-5px); }
         .kpi-number { font-size: 2.8rem; font-weight: 800; color: var(--primary-dark); display: block; }
+        .kpi-label { font-size: 0.9rem; font-weight: 600; text-transform: uppercase; color: var(--text-muted); }
 
-        /* PERSONA HIGHLIGHT */
+        /* PERSONA */
         .persona-box {
             background: linear-gradient(135deg, #ffffff 0%, var(--soft-blue) 100%);
             padding: 40px;
@@ -124,24 +130,53 @@
             border-left: 10px solid var(--softmind-accent);
         }
 
+        /* GALLERY */
+        .screens-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .screen-item {
+            background: #fff;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .screen-item:hover { transform: scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
+        .screen-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .screen-caption { padding: 20px; font-size: 0.95rem; color: var(--text-main); font-weight: 600; text-align: center; background: #fafafa; }
+
         /* BUTTONS */
         .btn-proto {
             background: var(--softmind-accent);
             color: white;
-            padding: 18px 40px;
+            padding: 20px 45px;
             border-radius: 999px;
             text-decoration: none;
             display: inline-block;
             font-weight: 700;
             transition: var(--transition);
             margin-top: 20px;
+            box-shadow: 0 10px 20px rgba(217, 108, 138, 0.2);
         }
-        .btn-proto:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(217, 108, 138, 0.3); }
+        .btn-proto:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(217, 108, 138, 0.4); }
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .section { padding: 40px 24px; }
-            h1 { font-size: 3.5rem; }
+            h1 { font-size: 3rem; }
+            .kpi-row { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -152,7 +187,7 @@
     <div class="container">
         <nav>
             <a href="index.html" class="back-link">← BACK TO PORTFOLIO</a>
-            <span style="font-weight: 800; color: var(--softmind-accent);">SOFTMIND</span>
+            <span style="font-weight: 800; color: var(--softmind-accent); letter-spacing: 1px;">SOFTMIND</span>
         </nav>
 
         <header class="hero">
@@ -162,73 +197,45 @@
                target="_blank" class="btn-proto">View Interactive Prototype</a>
         </header>
 
-        <section class="section active">
+        <section class="section">
             <h2>Project Overview</h2>
             <p>SoftMind addresses the "Data Overload" problem in mental health. While many apps track everything, they often increase user anxiety. Our core challenge: <strong>How might we empower users to track patterns without the cognitive burden?</strong></p>
             <div class="kpi-row">
-                <div class="kpi-card"><strong>Timeline</strong><br>6 Weeks</div>
-                <div class="kpi-card"><strong>Role</strong><br>Solo Product Designer</div>
-                <div class="kpi-card"><strong>Tools</strong><br>Figma, UserTesting</div>
+                <div class="kpi-card"><span class="kpi-label">Timeline</span><br><strong>6 Weeks</strong></div>
+                <div class="kpi-card"><span class="kpi-label">Role</span><br><strong>Solo Designer</strong></div>
+                <div class="kpi-card"><span class="kpi-label">Tools</span><br><strong>Figma, Testing</strong></div>
             </div>
         </section>
-<section class="project-section problem">
-  <h2>Problem Statement</h2>
-  <p>
-    Many mental health apps overwhelm users with too many features, complex dashboards,
-    and performance metrics. Users seeking emotional support need simplicity,
-    reassurance, and a calm experience that helps them check in and feel supported
-    rather than judged.
-  </p>
-</section>
-.project-section.problem {
-  background: #fff7f9;
-  padding: 32px;
-  border-radius: 12px;
-  margin-bottom: 40px;
-}
-.project-section.problem h2 {
-  font-size: 24px;
-  color: var(--purple-main);
-  margin-bottom: 12px;
-}
-.project-section.problem p {
-  font-size: 17px;
-  line-height: 1.7;
-  color: #333;
-}
-<section class="project-section flow">
-  <h2>User Flow</h2>
-  <ul>
-    <li>Onboarding: introduction to the app</li>
-    <li>Mood Check-in: user selects emotional state</li>
-    <li>Calm Exercise: guided breathing</li>
-    <li>Mood History: shows tracked states over time</li>
-    <li>Journal: optional reflection</li>
-    <li>Profile: settings and progress overview</li>
-  </ul>
-</section>
-.project-section.flow h2 {
-  font-size: 24px;
-  color: var(--purple-main);
-  margin-bottom: 12px;
-}
-.project-section.flow ul {
-  list-style: inside disc;
-  color: #444;
-  font-size: 16px;
-  line-height: 1.6;
-}
+
+        <section class="section problem">
+            <h2>Problem Statement</h2>
+            <p>
+                Many mental health apps overwhelm users with too many features, complex dashboards,
+                and performance metrics. Users seeking emotional support need simplicity,
+                reassurance, and a calm experience that helps them check in and feel supported
+                rather than judged.
+            </p>
+        </section>
 
         <section class="section">
             <h2>The Challenge & Insights</h2>
             <p>Research showed that <strong>70% of users abandon mental health apps</strong> due to notification fatigue and complex dashboards. Individuals with anxiety need a "Safe Space," not a clinical spreadsheet.</p>
-            
-            
-
-            <ul style="margin-top: 24px;">
+            <ul>
                 <li><strong>Subtle Tracking:</strong> Users prefer guided prompts over detailed text inputs.</li>
                 <li><strong>Predictability:</strong> Consistency in navigation builds trust for anxious users.</li>
-                <li><strong>Language Matters:</strong> Using "Relatable Language" (e.g., 'a bit stressed') instead of clinical jargon.</li>
+                <li><strong>Language Matters:</strong> Using "Relatable Language" instead of clinical jargon.</li>
+            </ul>
+        </section>
+
+        <section class="section flow">
+            <h2>User Flow</h2>
+            <ul>
+                <li><strong>Onboarding:</strong> Gentle introduction to the app</li>
+                <li><strong>Mood Check-in:</strong> User selects emotional state via icons</li>
+                <li><strong>Calm Exercise:</strong> Immediate guided breathing relief</li>
+                <li><strong>Mood History:</strong> Visualized tracked states over time</li>
+                <li><strong>Journal:</strong> Optional space for reflection</li>
+                <li><strong>Profile:</strong> Simple settings and progress overview</li>
             </ul>
         </section>
 
@@ -237,50 +244,31 @@
                 <h2>User Persona: Adam</h2>
                 <p><strong>Adam, 30 – Office Employee</strong></p>
                 <p>Adam experiences anxiety spikes after long workdays. He struggles with decision-making when tired. He seeks a tool that feels supportive and non-judgmental.</p>
-                <blockquote style="font-size: 1.5rem; font-weight: 600; color: var(--primary-dark); margin-top: 20px;">
+                <blockquote style="font-size: 1.4rem; font-style: italic; color: var(--primary-dark); margin-top: 20px; border-left: 4px solid var(--softmind-accent); padding-left: 20px;">
                     "I want something that calms me down, not tracks every mistake."
                 </blockquote>
             </div>
         </section>
-<section class="project-section decisions">
-  <h2>Key UX Decisions</h2>
-  <ul>
-    <li>Soft color palette to reduce emotional overload</li>
-    <li>Limited mood options to avoid choice paralysis</li>
-    <li>Calm exercises positioned after mood check-in for immediate relief</li>
-    <li>No analytics dashboard to avoid performance pressure</li>
-    <li>Journal is optional to respect emotional energy levels</li>
-  </ul>
-</section>
-.project-section.decisions h2 {
-  font-size: 24px;
-  color: var(--purple-main);
-  margin-bottom: 12px;
-}
-.project-section.decisions ul {
-  list-style: inside circle;
-  color: #444;
-  font-size: 16px;
-  line-height: 1.6;
-}
-<section class="project-section casestudy">
-  <h2>Case Study</h2>
-  <p>
-    SoftMind is a non-clinical mental wellness app concept focused on emotional check-in,
-    guided calm practices, and gentle self-reflection. The design prioritizes emotional
-    safety over analytics, reducing cognitive load for users experiencing stress or anxiety.
-  </p>
-</section>
-.project-section.casestudy h2 {
-  font-size: 24px;
-  color: var(--purple-main);
-  margin-bottom: 12px;
-}
-.project-section.casestudy p {
-  font-size: 17px;
-  line-height: 1.7;
-  color: #333;
-}
+
+        <section class="section decisions">
+            <h2>Key UX Decisions</h2>
+            <ul>
+                <li><strong>Soft color palette</strong> to reduce emotional overload</li>
+                <li><strong>Limited mood options</strong> to avoid choice paralysis</li>
+                <li><strong>Calm exercises</strong> positioned after mood check-in for immediate relief</li>
+                <li><strong>No analytics dashboard</strong> to avoid performance pressure</li>
+                <li><strong>Optional Journal</strong> to respect varying emotional energy levels</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Case Study Focus</h2>
+            <p>
+                SoftMind is a non-clinical mental wellness app concept focused on emotional check-in,
+                guided calm practices, and gentle self-reflection. The design prioritizes emotional
+                safety over analytics, reducing cognitive load for users experiencing stress or anxiety.
+            </p>
+        </section>
 
         <section class="section">
             <h2>Measurable Impact</h2>
@@ -288,15 +276,15 @@
             <div class="kpi-row">
                 <div class="kpi-card">
                     <span class="kpi-number">-40%</span>
-                    <span>Onboarding Drop-off</span>
+                    <span class="kpi-label">Onboarding Drop-off</span>
                 </div>
                 <div class="kpi-card">
                     <span class="kpi-number">-25%</span>
-                    <span>Self-Reported Stress</span>
+                    <span class="kpi-label">Self-Reported Stress</span>
                 </div>
                 <div class="kpi-card">
                     <span class="kpi-number">85%</span>
-                    <span>Completion Rate</span>
+                    <span class="kpi-label">Completion Rate</span>
                 </div>
             </div>
         </section>
@@ -321,53 +309,40 @@
         </section>
 
         <section class="section">
-            <h2>Iterations & Key Learnings</h2>
+            <h2>Outcome & Learnings</h2>
             <p><strong>Round 1:</strong> Simplified onboarding from 5 steps to 2.</p>
             <p><strong>Round 2:</strong> Replaced text-heavy prompts with mood icons, boosting engagement by 35%.</p>
-            <p><strong>Conclusion:</strong> Behavioral design thrives on empathy. SoftMind successfully proved that "Less is More" when designing for emotional regulation.</p>
-            
-            
-            
-            <p style="margin-top: 30px;"><strong>Next Steps:</strong> Integrate passive tracking via wearables and A/B test personalized AI calming suggestions.</p>
+            <p style="margin-top: 20px;">
+                Designing for emotional safety requires reducing decision friction and focusing on calm, intentional interactions. SoftMind successfully proved that "Less is More" when designing for emotional regulation.
+            </p>
+            <p style="margin-top: 30px; padding: 20px; background: var(--soft-blue); border-radius: 12px;">
+                <strong>Next Steps:</strong> Integrate passive tracking via wearables and A/B test personalized AI calming suggestions.
+            </p>
         </section>
 
     </div>
-<section class="project-section outcome">
-  <h2>Outcome & Learnings</h2>
-  <p>
-    This concept helped me understand how emotional UX differs from productivity UX.
-    Designing for emotional safety requires reducing decision friction, using
-    gentle colors, and focusing on calm, intentional interactions.
-  </p>
-</section>
-.project-section.outcome h2 {
-  font-size: 24px;
-  color: var(--purple-main);
-  margin-bottom: 12px;
-}
-.project-section.outcome p {
-  font-size: 17px;
-  line-height: 1.7;
-  color: #333;
-}
 
     <script>
-        // Smooth scroll progress
-        window.onscroll = function() {
-            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            var scrolled = (winScroll / height) * 100;
+        // Progress Bar Logic
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
             document.getElementById("myBar").style.width = scrolled + "%";
+        });
+
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            threshold: 0.15
         };
 
-        // Scroll reveal logic
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
                 }
             });
-        }, { threshold: 0.1 });
+        }, observerOptions);
 
         document.querySelectorAll('.section').forEach((section) => {
             observer.observe(section);
@@ -375,4 +350,3 @@
     </script>
 </body>
 </html>
-
