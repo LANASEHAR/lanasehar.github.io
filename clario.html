@@ -11,15 +11,17 @@
 
   <style>
     :root {
-      --clario-bg: #f3f4f6;
-      --clario-accent: #6c5ce7;
-      --text-dark: #2e2e3a;
-      --text-muted: #666e75;
+      /* Green Palette */
+      --clario-bg: #f0f4f2;
+      --clario-accent: #2d6a4f; /* Deep Emerald Green */
+      --clario-light-green: #d8f3dc;
+      --text-dark: #1b4332;
+      --text-muted: #52796f;
       --white: #ffffff;
-      --radius-lg: 24px;
-      --radius-sm: 12px;
-      --shadow-subtle: 0 10px 30px rgba(108,92,231,0.1);
-      --transition: all 0.5s ease;
+      --radius-lg: 32px;
+      --radius-sm: 16px;
+      --shadow-subtle: 0 15px 40px rgba(45, 106, 79, 0.08);
+      --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     body {
@@ -27,27 +29,26 @@
       background: var(--clario-bg);
       color: var(--text-dark);
       margin: 0;
-      line-height: 1.8;
+      line-height: 1.7;
       scroll-behavior: smooth;
     }
 
-    /* Progress Bar Fix */
     .progress-container {
       position: fixed;
       top: 0;
       z-index: 1000;
       width: 100%;
-      height: 4px;
-      background: transparent;
+      height: 5px;
+      background: rgba(255,255,255,0.2);
     }
     .progress-bar {
-      height: 4px;
+      height: 100%;
       background: var(--clario-accent);
       width: 0%;
     }
 
     .container {
-      max-width: 1080px;
+      max-width: 900px; /* Narrower container for better readability */
       margin: 0 auto;
       padding: 0 24px;
     }
@@ -62,84 +63,92 @@
     .back-link {
       text-decoration: none;
       color: var(--text-dark);
-      font-weight: 800;
-      letter-spacing: 1px;
+      font-weight: 700;
+      font-size: 0.9rem;
       transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
-    .back-link:hover { color: var(--clario-accent); }
+    .back-link:hover { color: var(--clario-accent); transform: translateX(-5px); }
 
-    .section {
-      background: var(--white);
-      padding: 80px 60px;
-      border-radius: var(--radius-lg);
-      margin-bottom: 50px;
-      box-shadow: var(--shadow-subtle);
-      opacity: 0;
-      transform: translateY(30px);
-      transition: var(--transition);
-    }
-
-    .section.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    h1 { font-size: clamp(3rem, 8vw, 5rem); margin: 0; color: var(--clario-accent); }
-    h2 { font-size: 2.2rem; color: var(--clario-accent); margin-bottom: 24px; }
-    
-    .hero { text-align: center; padding: 100px 0 60px 0; }
+    .hero { text-align: center; padding: 80px 0 100px; }
+    h1 { font-size: clamp(3.5rem, 10vw, 6rem); margin: 0; color: var(--clario-accent); letter-spacing: -3px; font-weight: 800; }
     
     .hero-image {
       width: 100%;
-      max-width: 900px;
+      max-width: 700px; /* Reduced hero image size */
       border-radius: var(--radius-lg);
-      margin-top: 40px;
-      box-shadow: var(--shadow-subtle);
+      margin-top: 50px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.1);
     }
 
     .subtitle {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       color: var(--text-muted);
-      margin-top: 20px;
-      max-width: 760px;
+      margin-top: 25px;
+      max-width: 650px;
       margin-left: auto;
       margin-right: auto;
+      font-weight: 400;
     }
 
-    .screens-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin-top: 32px;
-    }
-
-    .screen-item {
-      border-radius: var(--radius-sm);
-      background: var(--clario-bg);
-      overflow: hidden;
+    .section {
+      background: var(--white);
+      padding: 70px 50px;
+      border-radius: var(--radius-lg);
+      margin-bottom: 40px;
+      box-shadow: var(--shadow-subtle);
+      opacity: 0;
+      transform: translateY(40px);
       transition: var(--transition);
     }
 
-    .screen-item:hover { transform: translateY(-10px); }
+    .section.active { opacity: 1; transform: translateY(0); }
+
+    h2 { font-size: 2rem; color: var(--clario-accent); margin-bottom: 20px; font-weight: 800; letter-spacing: -1px; }
+    
+    .screens-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Smaller grid items */
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .screen-item {
+      text-align: center;
+    }
+
+    .img-wrapper {
+      background: var(--clario-bg);
+      padding: 20px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 20px;
+      transition: var(--transition);
+    }
+    
+    .img-wrapper:hover { background: var(--clario-light-green); transform: scale(1.02); }
 
     .screen-item img {
       width: 100%;
+      max-width: 220px; /* Strictly controlled screenshot size */
       height: auto;
-      display: block;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      margin: 0 auto;
     }
 
     .figma-box {
       width: 100%;
-      height: 600px;
+      height: 550px;
       border-radius: var(--radius-lg);
       overflow: hidden;
-      margin-top: 24px;
-      border: 1px solid rgba(0,0,0,0.1);
+      margin-top: 30px;
+      border: 1px solid var(--clario-light-green);
     }
 
     @media (max-width:768px) {
       .section { padding: 40px 24px; }
-      .figma-box { height: 400px; }
     }
   </style>
 </head>
@@ -150,51 +159,52 @@
 <div class="container">
   <nav>
     <a href="index.html" class="back-link">← BACK TO PORTFOLIO</a>
-    <div style="font-weight:600;opacity:.6;text-transform: uppercase;">Case Study 2026</div>
+    <div style="font-weight:700; color: var(--clario-accent); opacity:0.8;">CLARIO // 2026</div>
   </nav>
 
   <header class="hero">
-    <h1>Clario</h1>
+    <h1>Clario.</h1>
     <p class="subtitle">
-      A mobile-first productivity app designed to reduce cognitive load 
-      and help users decide what matters most today.
+      A minimalist productivity ecosystem engineered to eliminate decision fatigue 
+      through intelligent task prioritization.
     </p>
-    <img src="clariohomepage.png" alt="Clario Home Preview" class="hero-image">
+    <img src="clariohomepage.png" alt="Clario Platform" class="hero-image">
   </header>
 
   <section class="section">
-    <h2>Problem Statement</h2>
+    <h2>The Challenge</h2>
     <p>
-      Modern productivity tools often overwhelm users with lengthy lists, too many options, 
-      and complex hierarchies. This causes decision fatigue and reduces long-term engagement. 
-      Users need clarity more than quantity.
+      Modern professionals are paralyzed by over-choice. Traditional task managers amplify anxiety by presenting endless, unweighted lists. <strong>Clario</strong> was born from the need to replace complexity with clarity, focusing on the psychological impact of digital interfaces on productivity.
     </p>
   </section>
 
   <section class="section">
-    <h2>UX Objective</h2>
+    <h2>UX Strategy</h2>
     <p>
-      Help users quickly prioritize one meaningful task per day, reduce mental friction, 
-      and streamline the decision process through clear recommendations and minimal interaction.
+      Our primary objective was to reduce the <strong>cognitive load</strong> of daily planning. By implementing a "Single-Task Focus" philosophy, the UI guides the user toward one high-impact action, effectively neutralizing the friction between intention and execution.
     </p>
   </section>
 
   <section class="section">
-    <h2>Core Screens & UI Highlights</h2>
+    <h2>Visual Architecture</h2>
     <div class="screens-grid">
       <div class="screen-item">
-        <img src="Clario.png" alt="Clario Interface Details">
-        <div style="padding:20px;">
-          <strong style="display:block; font-size: 1.2rem;">Visual Clarity</strong>
-          <p style="font-size: 0.9rem; margin-top: 8px;">Clean interfaces to support deep focus and minimize distractions.</p>
+        <div class="img-wrapper">
+          <img src="Clario.png" alt="Mobile UI Focus">
         </div>
+        <strong>Distraction-Free UI</strong>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px;">
+          Using negative space and soft green tones to induce calmness during high-pressure work hours.
+        </p>
       </div>
       <div class="screen-item">
-        <img src="clariohomepage.png" alt="Clario Dashboard">
-        <div style="padding:20px;">
-          <strong style="display:block; font-size: 1.2rem;">Intuitive Flow</strong>
-          <p style="font-size: 0.9rem; margin-top: 8px;">Seamless transition from planning to execution mode.</p>
+        <div class="img-wrapper">
+          <img src="clariohomepage.png" alt="Dashboard Logic">
         </div>
+        <strong>Contextual Dashboard</strong>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px;">
+          An adaptive interface that evolves throughout the day, showing only what is relevant <em>now</em>.
+        </p>
       </div>
     </div>
   </section>
@@ -212,11 +222,9 @@
   </section>
 
   <section class="section">
-    <h2>Outcome & Learnings</h2>
+    <h2>Key Results</h2>
     <p>
-      Clario reinforced that <strong>simplicity over features</strong> increases user clarity. 
-      By limiting choices and explaining the reasons behind recommendations, 
-      users feel guided and less overwhelmed — a key UX principle for productivity tools.
+      By prioritizing <strong>simplicity over surplus features</strong>, Clario proves that less is indeed more. The outcome is a seamless user journey that fosters deep work, reduces mental burnout, and transforms task management from a burden into a ritual.
     </p>
   </section>
 </div>
