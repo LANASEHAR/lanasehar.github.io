@@ -21,6 +21,7 @@
       --shadow-subtle: 0 10px 30px rgba(108,92,231,0.1);
       --transition: all 0.5s ease;
     }
+
     body {
       font-family: 'Inter', sans-serif;
       background: var(--clario-bg);
@@ -29,23 +30,44 @@
       line-height: 1.8;
       scroll-behavior: smooth;
     }
+
+    /* Progress Bar Fix */
+    .progress-container {
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+      height: 4px;
+      background: transparent;
+    }
+    .progress-bar {
+      height: 4px;
+      background: var(--clario-accent);
+      width: 0%;
+    }
+
     .container {
       max-width: 1080px;
       margin: 0 auto;
       padding: 0 24px;
     }
+
     nav {
       padding: 40px 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
+
     .back-link {
       text-decoration: none;
       color: var(--text-dark);
       font-weight: 800;
       letter-spacing: 1px;
+      transition: var(--transition);
     }
+    .back-link:hover { color: var(--clario-accent); }
+
     .section {
       background: var(--white);
       padding: 80px 60px;
@@ -56,32 +78,25 @@
       transform: translateY(30px);
       transition: var(--transition);
     }
+
     .section.active {
       opacity: 1;
       transform: translateY(0);
     }
-    h1 {
-      font-size: clamp(3rem, 8vw, 5rem);
-      margin: 0;
-      color: var(--clario-accent);
+
+    h1 { font-size: clamp(3rem, 8vw, 5rem); margin: 0; color: var(--clario-accent); }
+    h2 { font-size: 2.2rem; color: var(--clario-accent); margin-bottom: 24px; }
+    
+    .hero { text-align: center; padding: 100px 0 60px 0; }
+    
+    .hero-image {
+      width: 100%;
+      max-width: 900px;
+      border-radius: var(--radius-lg);
+      margin-top: 40px;
+      box-shadow: var(--shadow-subtle);
     }
-    h2 {
-      font-size: 2.2rem;
-      color: var(--clario-accent);
-      margin-bottom: 24px;
-    }
-    h3 { font-size: 1.4rem; margin-top: 24px; }
-    p, li {
-      font-size: 1rem;
-      color: var(--text-dark);
-    }
-    .hero {
-      text-align: center;
-      padding: 120px 0;
-      background: transparent;
-      transform: none;
-      opacity: 1;
-    }
+
     .subtitle {
       font-size: 1.5rem;
       color: var(--text-muted);
@@ -90,169 +105,135 @@
       margin-left: auto;
       margin-right: auto;
     }
-    ul { padding-left: 20px; }
+
     .screens-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
       margin-top: 32px;
     }
+
     .screen-item {
       border-radius: var(--radius-sm);
-      background: var(--white);
+      background: var(--clario-bg);
       overflow: hidden;
-      border: 1px solid rgba(0,0,0,0.05);
       transition: var(--transition);
     }
-    .screen-item:hover {
-      transform: scale(1.03);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-    }
+
+    .screen-item:hover { transform: translateY(-10px); }
+
     .screen-item img {
       width: 100%;
-      height: 200px;
-      object-fit: cover;
+      height: auto;
       display: block;
     }
-    .screen-title { font-weight: 600; margin-top: 12px; }
-    .screen-desc { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px; }
+
     .figma-box {
       width: 100%;
-      height: 480px;
+      height: 600px;
       border-radius: var(--radius-lg);
       overflow: hidden;
       margin-top: 24px;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+      border: 1px solid rgba(0,0,0,0.1);
     }
+
     @media (max-width:768px) {
       .section { padding: 40px 24px; }
+      .figma-box { height: 400px; }
     }
   </style>
 </head>
 <body>
 
-<div class="container">
+<div class="progress-container"><div class="progress-bar"></div></div>
 
+<div class="container">
   <nav>
-    <a href="index.html" class="back-link">← CLARIO</a>
-    <div style="font-weight:600;opacity:.6;">CASE STUDY</div>
+    <a href="index.html" class="back-link">← BACK TO PORTFOLIO</a>
+    <div style="font-weight:600;opacity:.6;text-transform: uppercase;">Case Study 2026</div>
   </nav>
 
   <header class="hero">
     <h1>Clario</h1>
     <p class="subtitle">
-      A mobile-first productivity app designed to reduce cognitive load
+      A mobile-first productivity app designed to reduce cognitive load 
       and help users decide what matters most today.
     </p>
+    <img src="clariohomepage.png" alt="Clario Home Preview" class="hero-image">
   </header>
 
-  <!-- Problem Statement -->
-  <section class="section active">
+  <section class="section">
     <h2>Problem Statement</h2>
     <p>
-      Modern productivity tools often overwhelm users with lengthy lists, too many options,
-      and complex hierarchies. This causes decision fatigue and reduces long-term engagement.
+      Modern productivity tools often overwhelm users with lengthy lists, too many options, 
+      and complex hierarchies. This causes decision fatigue and reduces long-term engagement. 
       Users need clarity more than quantity.
     </p>
   </section>
 
-  <!-- UX Objective -->
   <section class="section">
     <h2>UX Objective</h2>
     <p>
-      Help users quickly prioritize one meaningful task per day, reduce mental friction,
+      Help users quickly prioritize one meaningful task per day, reduce mental friction, 
       and streamline the decision process through clear recommendations and minimal interaction.
     </p>
   </section>
 
-  <!-- User Flow -->
-  <section class="section">
-    <h2>User Flow</h2>
-    <ul>
-      <li>Open app → see today’s context</li>
-      <li>View top recommendation with reason</li>
-      <li>Start task or adjust priority</li>
-      <li>Enter focus mode to complete task</li>
-      <li>Finish and return to overview</li>
-    </ul>
-  </section>
-
-  <!-- Screens Gallery -->
   <section class="section">
     <h2>Core Screens & UI Highlights</h2>
     <div class="screens-grid">
       <div class="screen-item">
-        <img src="https://raw.githubusercontent.com/LANASEHAR/Myportfolio/refs/heads/main/Clario-01-Today.png" alt="Today View">
-        <div style="padding:12px;">
-          <span class="screen-title">Today View</span>
-          <span class="screen-desc">Highlighting priority task and reducing noise.</span>
+        <img src="Clario.png" alt="Clario Interface Details">
+        <div style="padding:20px;">
+          <strong style="display:block; font-size: 1.2rem;">Visual Clarity</strong>
+          <p style="font-size: 0.9rem; margin-top: 8px;">Clean interfaces to support deep focus and minimize distractions.</p>
         </div>
       </div>
       <div class="screen-item">
-        <img src="https://raw.githubusercontent.com/LANASEHAR/Myportfolio/refs/heads/main/Clario-02-WhatNow.png" alt="Priority Recommendation">
-        <div style="padding:12px;">
-          <span class="screen-title">Priority Recommendation</span>
-          <span class="screen-desc">Only one clear choice reduces cognitive overload.</span>
-        </div>
-      </div>
-      <div class="screen-item">
-        <img src="https://raw.githubusercontent.com/LANASEHAR/Myportfolio/refs/heads/main/Clario-03-FocusMode.png" alt="Focus Mode">
-        <div style="padding:12px;">
-          <span class="screen-title">Focus Mode</span>
-          <span class="screen-desc">Minimal UI to help complete tasks.</span>
+        <img src="clariohomepage.png" alt="Clario Dashboard">
+        <div style="padding:20px;">
+          <strong style="display:block; font-size: 1.2rem;">Intuitive Flow</strong>
+          <p style="font-size: 0.9rem; margin-top: 8px;">Seamless transition from planning to execution mode.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Interactive Prototype -->
   <section class="section">
     <h2>Interactive Prototype</h2>
     <div class="figma-box">
       <iframe 
         style="border: none;" 
         width="100%" height="100%" 
-        src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/0m5O01qMBmUvpd27x920LJ/Clario?node-id=0-1&t=faPiXt6ylRQwGUhd-1" 
+        src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/0m5O01qMBmUvpd27x920LJ/Clario?node-id=0-1" 
         allowfullscreen>
       </iframe>
     </div>
   </section>
 
-  <!-- Key UX Decisions -->
-  <section class="section">
-    <h2>Key UX Decisions</h2>
-    <ul>
-      <li>Presented only one top task per session to reduce decision fatigue.</li>
-      <li>Used clear, reason-label explanations for recommendations.</li>
-      <li>Simple actions (Start / Snooze / Adjust) to minimize friction.</li>
-      <li>Focus mode to eliminate distractions and support task completion.</li>
-    </ul>
-  </section>
-
-  <!-- Outcome & Learnings -->
   <section class="section">
     <h2>Outcome & Learnings</h2>
     <p>
-      Clario reinforced that **simplicity over features** increases user clarity.
-      By limiting choices and explaining the reasons behind recommendations,
+      Clario reinforced that <strong>simplicity over features</strong> increases user clarity. 
+      By limiting choices and explaining the reasons behind recommendations, 
       users feel guided and less overwhelmed — a key UX principle for productivity tools.
     </p>
   </section>
-
 </div>
 
 <script>
   window.onscroll = function() {
     var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    document.querySelector('.progress-bar').style.width = (winScroll / height) * 100 + "%";
+    var scrolled = (winScroll / height) * 100;
+    document.querySelector(".progress-bar").style.width = scrolled + "%";
   };
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) entry.target.classList.add('active');
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.1 });
 
   document.querySelectorAll('.section').forEach(section => observer.observe(section));
 </script>
